@@ -19,7 +19,7 @@ const HomeHeroSection = ({ currentUser }) => {
     const [fadeInUpRef, fadeInUpAnimation] = useFadeInUpAnimation();
 
     return (
-        <div>
+        <>
             <section className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-2">
                 <animated.aside
                     className='flex flex-col my-auto'
@@ -66,16 +66,16 @@ const HomeHeroSection = ({ currentUser }) => {
                 </animated.aside>
             </section>
             <animated.div
-                className='grid grid-cols-1 md:grid-cols-4 gap-4 mt-10 px-5'
+                className='grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 px-0 md:px-5'
                 ref={fadeInUpRef}
                 style={fadeInUpAnimation}
             >
-                <FeatureCard icon={<HiOutlineClipboardDocumentList />} count='60 ' text='Projects completed' />
+                <FeatureCard icon={<HiOutlineClipboardDocumentList />} count='60 ' text='Projects Done' />
                 <FeatureCard icon={<HiOutlineClipboardDocumentList />} count='25 ' text='Projects Running' />
                 <FeatureCard icon={<HiOutlineClipboardDocumentList />} count='50 ' text='Happy clients' />
                 <FeatureCard icon={<HiOutlineClipboardDocumentList />} count='40 ' text='Services' />
             </animated.div>
-        </div>
+        </>
     )
 }
 

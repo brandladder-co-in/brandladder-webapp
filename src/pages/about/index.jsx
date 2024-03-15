@@ -47,14 +47,14 @@ const About = () => {
 
     return (
         <motion.section {...bounceAnimationProps} className='bg-orange-2'>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-5 py-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 px-5 py-10">
                 <animated.aside ref={fadeInRightRef1} style={fadeInRight1}>
-                    <h1 className='text-black text-5xl font-bold'>
+                    <h1 className='text-black text-3xl md:text-5xl font-bold'>
                         We are here to make your journey flawless !
                     </h1>
                 </animated.aside>
                 <animated.aside className="mt-auto" ref={fadeInLeftRef1} style={fadeInLeft1}>
-                    <p className='my-auto text-sm text-gray-600'>
+                    <p className='my-auto text-xs lg:text-sm text-gray-600'>
                         Brand ladder: where ambition meets creativity. Your trusted partner to help you overcome any obstacles in the digital landscape. Meet our committed founder and team, dedicated in establishing your success.
                     </p>
                 </animated.aside>
@@ -74,7 +74,7 @@ const About = () => {
                 <h1 className='text-center my-6 text-3xl md:text-5xl text-black font-semibold md:font-bold'>
                     Our Founder
                 </h1>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-2">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-2">
                     <animated.aside>
                         <img
                             src='https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/team%2F1706971961993.jpg?alt=media&token=905e09bf-d68a-4edb-833a-eb0ef235e3b6'
@@ -90,9 +90,10 @@ const About = () => {
                         style={fadeInLeft2}
                     >
                         <div>
-                            <h1 className='text-black text-4xl font-semibold'>
-                                Dr. Uday Kiran ( MBBS ,MD psychiatry resident )
+                            <h1 className='text-black text-2xl md:text-4xl font-semibold'>
+                                Dr. Uday Kiran
                             </h1>
+                            <h4 className='text-xl' >(MBBS ,MD psychiatry resident)</h4>
                             <small>
                                 Founder - Brandladder , Udbha
                             </small>
@@ -119,9 +120,9 @@ const About = () => {
                 </div>
             </div>
 
-            <div className='p-10'>
+            <div className='py-10'>
                 <h2>Meet Our Team</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     {teamData?.map((member, index) => (
                         member.img && (
                             <TeamCard

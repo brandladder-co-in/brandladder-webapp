@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 
 import useEmailAuth from '../../../hooks/auth/useEmailAuth';
 
+import { FaHome } from 'react-icons/fa'
 import { GrServices, GrArticle } from 'react-icons/gr'
 import { MdOutlineEmojiEvents, MdOutlineContacts } from 'react-icons/md'
 import { IoMdMenu } from "react-icons/io";
@@ -13,8 +13,11 @@ import { IoPricetagsOutline } from "react-icons/io5";
 
 const Sidebar = () => {
 
-    const { currentUser, handleSignOut } = useEmailAuth()
-    const navigate = useNavigate();
+    const { currentUser } = useEmailAuth()
+
+    const closeSidebar = () => {
+        document.getElementById('drawer-left').checked = false;
+    };
 
     return (
         <>
@@ -30,7 +33,7 @@ const Sidebar = () => {
                         <img
                             src="https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/general%2Ffull-logo.png?alt=media&token=5a963339-c8d7-42f1-9b21-fc29358196e6"
                             alt="BrandLadder"
-                            className='max-w-52'
+                            className='max-w-48'
                             loading='lazy'
                         />
                         <label htmlFor="drawer-left" className="btn btn-xl btn-circle btn-ghost text-orange-7">
@@ -43,8 +46,17 @@ const Sidebar = () => {
                                 <span class="menu-title">Main menu</span>
                                 <ul class="menu-items">
                                     <li class="menu-item text-orange-5 font-semibold text-[1rem]">
-                                        <GrArticle />
-                                        <span>Insights</span>
+                                        <Link to='/' className='flex gap-3 w-full' onClick={closeSidebar}>
+                                            <FaHome className='my-auto' />
+                                            <span>Home</span>
+                                        </Link>
+                                    </li>
+
+                                    <li class="menu-item text-orange-5 font-semibold text-[1rem]">
+                                        <Link to='/insight' className='flex gap-3 w-full' onClick={closeSidebar}>
+                                            <GrArticle className='my-auto' />
+                                            <span>Insights</span>
+                                        </Link>
                                     </li>
 
                                     <li>
@@ -64,41 +76,53 @@ const Sidebar = () => {
                                         <div class="menu-item-collapse">
                                             <div class="min-h-0">
                                                 <label class="menu-item ml-6 text-orange-5">
-                                                    <GrServices />
-                                                    Services
+                                                    <Link to='/services' className='flex gap-3 w-full' onClick={closeSidebar}>
+                                                        <GrServices className='my-auto' />
+                                                        <p>Services</p>
+                                                    </Link>
                                                 </label>
                                                 <label class="menu-item ml-6 text-orange-5">
-                                                    <MdOutlineEmojiEvents />
-                                                    Events
+                                                    <Link to='/events' className='flex gap-3 w-full' onClick={closeSidebar}>
+                                                        <MdOutlineEmojiEvents className='my-auto' />
+                                                        <p>Events</p>
+                                                    </Link>
                                                 </label>
                                                 <label class="menu-item ml-6 text-orange-5">
-                                                    <MdOutlineContacts />
-                                                    Investments
+                                                    <Link to='/investment' className='flex gap-3 w-full' onClick={closeSidebar}>
+                                                        <MdOutlineContacts className='my-auto' />
+                                                        <p>Investments</p>
+                                                    </Link>
                                                 </label>
                                             </div>
                                         </div>
                                     </li>
 
                                     <li class="menu-item text-orange-5 font-semibold text-[1rem]">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 opacity-75" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                                        </svg>
-                                        <span>About Us</span>
+                                        <Link to='/about' onCanPlay={closeSidebar} className='flex gap-3'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 opacity-75" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                            </svg>
+                                            <span>About Us</span>
+                                        </Link>
                                     </li>
 
                                     {
                                         currentUser && (
                                             <li class="menu-item text-orange-5 font-semibold text-[1rem]">
-                                                <IoPricetagsOutline />
-                                                <span>Pricing</span>
+                                                <Link to='/plans' className='flex gap-3 w-full' onClick={closeSidebar}>
+                                                    <IoPricetagsOutline className='my-auto' />
+                                                    <span>Plans And Offers</span>
+                                                </Link>
                                             </li>
                                         )
                                     }
 
 
                                     <li class="menu-item text-orange-5 font-semibold text-[1rem]">
-                                        <MdOutlineContacts />
-                                        <span>Contact Us</span>
+                                        <Link onClick={closeSidebar} className='flex gap-3 w-full' to='/contact'>
+                                            <MdOutlineContacts className='my-auto' />
+                                            <span>Contact Us</span>
+                                        </Link>
                                     </li>
 
                                 </ul>
@@ -112,18 +136,24 @@ const Sidebar = () => {
 
 
                                             <li class="menu-item text-orange-5 font-semibold text-[1rem]">
-                                                <IoPricetagsOutline />
-                                                <span>Pricing</span>
+                                                <Link onClick={closeSidebar} className='flex gap-3 w-full' to='/plans'>
+                                                    <IoPricetagsOutline className='my-auto' />
+                                                    <span>Plans And Offers</span>
+                                                </Link>
                                             </li>
 
                                             <li class="menu-item text-orange-5 font-semibold text-[1rem]">
-                                                <MdOutlineContacts />
-                                                <span>Login</span>
+                                                <Link onClick={closeSidebar} className='flex gap-3 w-full' to='/login'>
+                                                    <MdOutlineContacts className='my-auto' />
+                                                    <span>Login</span>
+                                                </Link>
                                             </li>
 
                                             <li class="menu-item text-orange-5 font-semibold text-[1rem]">
-                                                <MdOutlineContacts />
-                                                <span>SignUp</span>
+                                                <Link onClick={closeSidebar} className='flex gap-3 w-full' to='/signup'>
+                                                    <MdOutlineContacts className='my-auto' />
+                                                    <span>SignUp</span>
+                                                </Link>
                                             </li>
 
                                         </ul>

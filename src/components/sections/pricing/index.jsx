@@ -29,7 +29,7 @@ const Pricing = ({ featureList1, featureList2, featureList3 }) => {
     return (
         <section className='bg-orange-2 mb-10 py-10 lg:px-10 px-2 w-full'>
             <div className="my-4" ref={fadeInUpRef1} style={fadeInUp1}>
-                <PageHeader title='Pricing' />
+                <PageHeader title='Exclusive Plans' />
             </div>
             <div className='text-center mb-10' >
                 <div className="inline-flex rounded-lg border border-gray-100 bg-orange-4 p-2 shadow-xl">

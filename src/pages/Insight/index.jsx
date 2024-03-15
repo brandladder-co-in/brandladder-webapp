@@ -6,14 +6,11 @@ import { useFirestore } from '../../context/FirestoreContext';
 import useBounceAnimation from '../../hooks/animations/useBounceAnimation';
 import useSmoothScroll from '../../hooks/general/useSmoothScroll'
 
-import { FaPlayCircle } from "react-icons/fa";
-
 import BlogImg1 from '../../assests/images/temprary/blog1.jpg'
 import BlogImg2 from '../../assests/images/temprary/blog2.jpg'
-import TestimonialImg from '../../assests/images/temprary/testimonials.png'
 
 import ImageCard from '../../components/cards/imageoverlap';
-import BlogCard2 from '../../components/cards/blog/blog2';
+// import BlogCard2 from '../../components/cards/blog/blog2';
 import BlogCard from '../../components/cards/blog';
 import HoverCard from '../../components/cards/blog/blog3'
 
@@ -187,7 +184,7 @@ const Blogs = () => {
 
             <section className='my-8'>
                 <h2 className='text-black text-xl font-normal my-4'>More Blogs ... </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 bg-orange-2 rounded-md p-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-orange-2 rounded-md p-2">
 
                     {
                         blogData && blogData

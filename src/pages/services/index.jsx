@@ -40,7 +40,7 @@ const Services = () => {
             break;
         default:
             serviceList = [...techServices, ...digitalServices, ...caServices];
-            sectionTitle = '.............................';
+            sectionTitle = '';
             break;
     }
 
@@ -52,7 +52,7 @@ const Services = () => {
     return (
         <motion.div {...bounceAnimationProps} className='p-5 bg-orange-2'>
             {/* searchbar */}
-            <animated.section className='my-5 navbar-floating top-14' ref={fadeInDownRef} style={fadeInDown}>
+            <animated.section className='my-5 navbar-floating z-30 top-14' ref={fadeInDownRef} style={fadeInDown}>
                 <div className='py-1 px-2 border-2 mx-auto border-orange-6 bg-orange-2 max-w-xl flex flex-col md:flex-row justify-center items-center rounded-3xl'>
                     <select
                         className="select border-none max-w-56 text-orange-6 bg-inherit mx-auto text-center"

@@ -10,7 +10,7 @@ const ServiceSection = ({ serviceList, sectionTitle }) => {
             {
                 serviceList !== null && (
                     <>
-                        <div className="mx-auto md:mr-auto my-10">
+                        <div className="mx-auto md:mr-auto mt-28 mb-8">
                             <h2 className='text-black text-3xl font-semibold' >
                                 {sectionTitle}
                             </h2>

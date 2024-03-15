@@ -70,14 +70,14 @@ const Contact = () => {
     }
 
     return (
-        <motion.section {...bounceAnimationProps} className='bg-orange-2 md:p-10 p-0'>
-            <h2 className='my-4 md:block hidden'>..... Get In Touch</h2>
-            <div className="flex flex-col-reverse md:flex-row justify-evenly ">
-                <aside className='md:block hidden mx-2 space-y-4'>
+        <motion.section {...bounceAnimationProps} className='bg-orange-2 py-4  p-2 md:p-10'>
+            <h2 className='my-4'>..... Get In Touch</h2>
+            <div className="flex flex-col-reverse md:flex-col lg:flex-row justify-evenly space-y-6">
+                <aside className='mx-2 space-y-4'>
                     <img
                         src="https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/gifs%2FMap%20GIF.gif?alt=media&token=6b076312-8f89-448b-9f16-c05899b22b0c"
                         alt="BrandLadder"
-                        className='mb-5 rounded-lg'
+                        className='mb-5 rounded-lg hidden lg:block'
                         loading='lazy'
                     />
                     <div className="flex flex-col space-y-4 justify-between rounded-xl p-10 bg-orange-3">
@@ -97,7 +97,7 @@ const Contact = () => {
                         </aside>
                     </div>
                 </aside>
-                <aside className='bg-orange-3 md:p-10 p-2 rounded-xl mx-2 space-y-10'>
+                <aside className='bg-orange-3 p-4 md:p-10 rounded-xl mx-2 space-y-10'>
                     <div className='space-y-4'>
                         <h1 className='text-black text-3xl md:text-5xl font-medium md:font-bold'>
                             Get In <span className='text-orange-8'> Touch</span>

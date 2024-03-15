@@ -107,7 +107,6 @@ const Navbar = () => {
     }
 
     return (
-        // <header>
         <header className={navbarClass}>
             <ScrollProgressBar />
             <div className="navbar-start">
@@ -198,7 +197,6 @@ const Navbar = () => {
             <Sidebar />
 
         </header>
-        // </header>
     );
 };
 
