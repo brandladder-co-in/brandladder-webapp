@@ -10,12 +10,11 @@ import CartModal from '../modal/cart'
 import { RxAvatar } from "react-icons/rx";
 import { MdOutlineContacts, MdKeyboardArrowDown, MdOutlineEmojiEvents } from "react-icons/md";
 import { IoPricetagsOutline, IoCaretDown, IoCaretUp } from "react-icons/io5";
-import { IoMdMenu } from "react-icons/io";
-import { PiArrowLineLeftBold } from "react-icons/pi";
 import { FaRegBuilding, FaHome } from "react-icons/fa";
 import { GrServices, GrArticle } from "react-icons/gr";
 
 import PageFlipSound from '../../assests/sound/page-flip.mp3'
+import Sidebar from './sidebar';
 
 const Navbar = () => {
     const [isSticky, setSticky] = useState(false);
@@ -33,14 +32,6 @@ const Navbar = () => {
         setSticky(scrollPosition > 200);
     };
 
-    const handleLogout = async () => {
-        try {
-            await handleSignOut();
-            navigate('/login')
-        } catch (error) {
-            console.error("Error while logout: ", error);
-        }
-    }
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
@@ -106,6 +97,15 @@ const Navbar = () => {
         document.getElementById('drawer-left').checked = false;
     };
 
+    const handleLogout = async () => {
+        try {
+            await handleSignOut();
+            navigate('/login')
+        } catch (error) {
+            console.error("Error while logout: ", error);
+        }
+    }
+
     return (
         // <header>
         <header className={navbarClass}>
@@ -139,8 +139,11 @@ const Navbar = () => {
                                                 <Link
                                                     key={idx}
                                                     to={item.path}
-                                                    className="dropdown-item flex flex-row hover:bg-orange-4 hover:text-orange-1 space-x-10 z-50">
-                                                    {item.icon} {item.title}
+                                                    className="dropdown-item my-auto flex flex-row items-center hover:bg-orange-4 hover:text-orange-1 space-x-10 z-50">
+
+                                                    {item.icon && React.cloneElement(item.icon, { className: 'my-auto mx-2' })}
+                                                    {/* {item.icon}  */}
+                                                    {item.title}
                                                 </Link>
                                             ))}
                                         </div>
@@ -149,7 +152,7 @@ const Navbar = () => {
                             ) : (
                                 <Link
                                     to={data.path}
-                                    className={`navbar-item text-black font-medium ${location.pathname === data.path ? 'text-orange-7' : ''} focus:text-orange-7 flex `}
+                                    className={`navbar-item text-black items-center my-auto font-medium ${location.pathname === data.path ? 'text-orange-7' : ''} focus:text-orange-7 flex `}
                                     onClick={async () => {
                                         play();
                                         closeDrawer();
@@ -164,7 +167,6 @@ const Navbar = () => {
                 }
             </div>
             <div className="navbar-end">
-
                 {
                     currentUser ? (
                         <div className="dropdown dropdown-hover">
@@ -193,57 +195,8 @@ const Navbar = () => {
             </div>
 
             {/* Responsive Menu */}
-            <input type="checkbox" id="drawer-left" className="drawer-toggle lg:hidden" />
+            <Sidebar />
 
-            <label htmlFor="drawer-left" className="lg:hidden mx-4">
-                <IoMdMenu className='text-orange-6' />
-            </label>
-            <label className="overlay" htmlFor="drawer-left"></label>
-            <div className="drawer bg-orange-2">
-                <div className="drawer-content h-full min-w-100">
-                    <div className="flex justify-between">
-                        <img
-                            src="https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/general%2Ffull-logo.png?alt=media&token=5a963339-c8d7-42f1-9b21-fc29358196e6"
-                            alt="BrandLadder"
-                            className='max-w-52'
-                        />
-                        <label htmlFor="drawer-left" className="btn btn-xl btn-circle btn-ghost text-orange-7">
-                            <PiArrowLineLeftBold />
-                        </label>
-                    </div>
-                    <div className="w-100 flex flex-col justify-center align-middle overflow-scroll h-4/5">
-                        {
-                            navLinks.map((data, index) => (
-                                <div key={index}>
-                                    {data.dropdownItems ? (
-                                        <div className="dropdown">
-                                            <button className="dropdown-toggle">{data.title}</button>
-                                            <div className="dropdown-menu">
-                                                {data.dropdownItems.map((item, idx) => (
-                                                    <Link key={idx} to={item.path} className="dropdown-item">{item.title}</Link>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    ) : (
-                                        <Link
-                                            to={data.path}
-                                            className={`navbar-item text-black font-medium ${location.pathname === data.path ? 'text-orange-7' : ''} focus:text-orange-7 flex `}
-                                            onClick={async () => {
-                                                play();
-                                                closeDrawer();
-                                            }}
-                                        >
-                                            {data.icon && React.cloneElement(data.icon, { className: 'my-auto mx-1' })}
-                                            {data.title}
-                                        </Link>
-                                    )}
-                                </div>
-                            ))
-                        }
-
-                    </div>
-                </div>
-            </div>
         </header>
         // </header>
     );

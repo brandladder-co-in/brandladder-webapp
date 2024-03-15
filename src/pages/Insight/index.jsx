@@ -142,7 +142,7 @@ const Blogs = () => {
                 </aside>
             </section>
 
-            <h1 className='py-3 px-1 rounded-md text-2xl' >Recommended</h1>
+            {/* <h1 className='py-3 px-1 rounded-md text-2xl' >Recommended</h1>
             <section className='bg-inherit md:bg-orange-2 lg:px-10 px-4 py-10'>
                 <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
                     <div className="grid col-span-3 grid-row-2 sm:grid-col-1 gap-4">
@@ -183,11 +183,11 @@ const Blogs = () => {
                         />
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             <section className='my-8'>
                 <h2 className='text-black text-xl font-normal my-4'>More Blogs ... </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 bg-orange-2 rounded-md p-2">
 
                     {
                         blogData && blogData
@@ -219,23 +219,27 @@ const Blogs = () => {
 const Testimonials = () => {
     return (
         <section className='bg-inherit'>
-            <div className="grid grid-cols-1 md:grid-cols-2">
-                <img src={TestimonialImg} alt="" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-6">
+                <img
+                    src='https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/team%2F1706971961993.jpg?alt=media&token=905e09bf-d68a-4edb-833a-eb0ef235e3b6'
+                    alt="Brandladder"
+                    loading='lazy'
+                />
                 <aside className='text-black flex flex-col gap-10 my-auto md:text-left text-center px-2 '>
                     <div>
                         <h1 className='text-black text-4xl font-semibold' >Uday Kiran</h1>
-                        <small>Founder of BRANDLADDER</small>
+                        <small> Founder - Brandladder , Udbha</small>
                     </div>
                     <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        Meet Dr. Uday Kiran, the visionary behind Brand Ladder. Excelling in both medicine and entrepreneurship, he embarked on his journey at just 17. After 7 years of relentless effort and market study, he founded Brand Ladder to support struggling entrepreneurs. His mission: empower businesses across all sectors to reach new heights. With his dedication, Brand Ladder is set to make a profound impact.
                     </p>
-                    <div className='flex text-left mx-auto md:mx-0'>
+                    {/* <div className='flex text-left mx-auto md:mx-0'>
                         <FaPlayCircle className='my-auto mr-2 text-6xl md:text-4xl' />
                         <div className='flex flex-col'>
                             <small>Watch video</small>
                             <small className='text-black'>Lorem Ipsum is simply dummy text of the printing and typesetting</small>
                         </div>
-                    </div>
+                    </div> */}
                 </aside>
             </div>
         </section>
