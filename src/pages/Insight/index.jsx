@@ -10,7 +10,7 @@ import BlogImg1 from '../../assests/images/temprary/blog1.jpg'
 import BlogImg2 from '../../assests/images/temprary/blog2.jpg'
 
 import ImageCard from '../../components/cards/imageoverlap';
-// import BlogCard2 from '../../components/cards/blog/blog2';
+// import BlogCard2 from '../../components/cards/blog/blog2';   
 import BlogCard from '../../components/cards/blog';
 import HoverCard from '../../components/cards/blog/blog3'
 
