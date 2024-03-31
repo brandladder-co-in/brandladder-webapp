@@ -67,7 +67,7 @@ const SelectPlan = ({ title, isPresent }) => {
                 <label className="modal-overlay" htmlFor={`modal-${title}`}></label>
                 <div className="modal-content flex flex-col gap-5 bg-white">
                     <label
-                        htmlFor="modal-1"
+                        htmlFor={`modal-${title}`}
                         className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-black hover:bg-inherit">
                         ✕
                     </label>

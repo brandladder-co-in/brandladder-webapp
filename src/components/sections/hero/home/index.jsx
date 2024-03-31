@@ -1,5 +1,6 @@
 import React from 'react';
 import { animated } from 'react-spring';
+import { Link } from 'react-router-dom';
 
 import useFadeInLeftAnimation from '../../../../hooks/animations/useFadeInLeftAnimation'
 import useFadeInRightAnimation from '../../../../hooks/animations/useFadeInRightAnimation'
@@ -10,8 +11,7 @@ import { HiOutlineClipboardDocumentList } from "react-icons/hi2";
 
 import FeatureCard from '../../../cards/feature/counting'
 
-import TextReplacementAnimation from '../../../../assests/animation/typeing'
-import { Link } from 'react-router-dom';
+import TextReplacementAnimation from '../../../../assests/animation/typeing';
 
 const HomeHeroSection = ({ currentUser }) => {
     const [fadeInLeftRef, fadeInLeft] = useFadeInLeftAnimation();

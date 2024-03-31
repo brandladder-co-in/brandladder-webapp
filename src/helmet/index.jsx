@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 const DEFAULT_DESCRIPTION = "Build And Grow Your Business By Digital Marketing, CA services, Technological services and Much More.";
 const DEFAULT_KEYWORDS = "brnadladder, brnadladder services, technical services, CA services, digital services, marketing services, startup, innovation, investment";
 
-const HelmetComponent = ({ title, desc = DEFAULT_DESCRIPTION, author, page, blogKeywords, focusKeywords }) => {
+const HelmetComponent = ({ title, desc = DEFAULT_DESCRIPTION, author, page, keywords, focusKeywords }) => {
     if (!title && !desc && !author) {
         console.warn("HelmetComponent: Insufficient props given.");
     }
@@ -23,8 +23,8 @@ const HelmetComponent = ({ title, desc = DEFAULT_DESCRIPTION, author, page, blog
             <meta name="author" content={`brandladder,Uday Kiran, G Krishna Bhargav, Anurag Kumar, suraj sahu, dhruv Gehlot, ${author}`} />
             <meta name="keywords" content={DEFAULT_KEYWORDS} />
 
-            {blogKeywords && blogKeywords.length > 0 && (
-                <meta name="keywords" content={blogKeywords.join(", ")} />
+            {keywords && keywords.length > 0 && (
+                <meta name="keywords" content={keywords.join(", ")} />
             )}
 
             {focusKeywords && focusKeywords.length > 0 && (

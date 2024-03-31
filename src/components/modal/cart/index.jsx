@@ -6,14 +6,14 @@ import { useAuth } from '../../../context/AuthContext';
 
 import CartCard from '../../cards/cart';
 import { MdOutlineCancel } from 'react-icons/md';
+import { HiOutlineEmojiSad } from "react-icons/hi";
 
 const CardModal = () => {
 
-    const [cartData, setCartData] = useState(null);
+    const [cartData, setCartData] = useState([]);
 
     const { getAllSubdocumentData } = useFirestore();
     const { currentUser } = useAuth()
-
 
     useEffect(() => {
         const handleGetCartData = async () => {
@@ -30,16 +30,15 @@ const CardModal = () => {
 
     }, [currentUser.uid, getAllSubdocumentData])
 
-    // console.log(cartData)
 
     return (
         <div>
-            <input className="modal-state" id="modal-3" type="checkbox" />
+            <input className="modal-state" id="cart-modal" type="checkbox" />
             <div className="modal">
                 <label className="modal-overlay"></label>
-                <div className="modal-content flex flex-col gap-5 bg-white">
+                <div className="modal-content flex flex-col gap-5 bg-white w-full">
                     <label
-                        htmlFor="modal-3"
+                        htmlFor="cart-modal"
                         className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-black hover:bg-orange-2"
                     >
                         <MdOutlineCancel />
@@ -48,7 +47,7 @@ const CardModal = () => {
 
                     <section>
                         {
-                            cartData ? (
+                            cartData?.length > 0 ? (
                                 cartData.map((item) => (
                                     <div className="my-2" key={item.id}>
                                         <CartCard
@@ -60,12 +59,13 @@ const CardModal = () => {
                                 ))
                             ) : (
                                 <>
-                                    <h2>No Plan Selected</h2>
+                                    <h2 className='flex my-6 mx-auto justify-center' >Your Bag Is Empty <HiOutlineEmojiSad className='my-auto mx-2 text-2xl' /></h2>
                                     <Link to='/services' >
-                                        <button
+                                        <label
+                                            htmlFor='cart-modal'
                                             className="btn btn-outline bg-inherit border-orange-6 text-black shadow-md transition-all ease-in-out duration-500 hover:bg-orange-6 hover:text-orange-2 hover:shadow-2xl hover:border-orange-6 w-full">
-                                            See All Services
-                                        </button>
+                                            Checkout Our Services
+                                        </label>
                                     </Link>
                                 </>
                             )

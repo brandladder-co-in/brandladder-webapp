@@ -67,4 +67,4 @@ ServiceCard.propTypes = {
   pricing: PropTypes.number,
 }
 
-export default ServiceCard
+export default ServiceCard;

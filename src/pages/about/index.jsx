@@ -15,7 +15,10 @@ import { TbBrandFacebook } from "react-icons/tb";
 import { MdOutlineMailOutline } from "react-icons/md";
 
 import TeamCard from '../../components/cards/team';
+import ClientsCarousel from '../../components/carousel/clients-carousel';
+import HelmetComponent from '../../helmet';
 // import LazyTypeAnimation from '../../assests/animation/LazyTypeAnimation';
+import { clientsLogo } from '../../.data/clients';
 
 const About = () => {
     useSmoothScroll();
@@ -46,8 +49,18 @@ const About = () => {
     }, [])
 
     return (
-        <motion.section {...bounceAnimationProps} className='bg-orange-2'>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 px-5 py-10">
+        <motion.section {...bounceAnimationProps} className='bg-orange-2 space-y-14 lg:space-y-20'>
+
+            <HelmetComponent
+                title='Our Team'
+                desc='Brand Ladder is your trusted partner for digital marketing solutions in Hyderabad, India. With a focus on excellence and innovation, we offer a wide range of services including SEO, PPC, social media marketing, web development, CA services, CS, ROC, PAN/TAN, DSC, Payroll, MSME registrations, Auditing, FSSAI license, Labour License, and more. Learn about our commitment to delivering unparalleled results for our clients.'
+                author='Anurag Kumar Teechnical Director BrandLadder'
+                page='about'
+                keywords={['About Brand Ladder Your Trusted Branding Partner', 'Digital Marketing Agency in Hyderabad, India', 'Anurag Kumar', 'anuragkmr45', 'Anurag Kumar Teechnical Director BrandLadder', 'brand ladder']}
+                focusKeywords={['About Brand Ladder Your Trusted Branding Partner', 'Digital Marketing Agency in Hyderabad, India', 'Anurag Kumar', 'anuragkmr45', 'Anurag Kumar Teechnical Director BrandLadder', 'brand ladder']}
+            />
+
+            <section className="grid grid-cols-1 lg:grid-cols-2 gap-4 px-5 ">
                 <animated.aside ref={fadeInRightRef1} style={fadeInRight1}>
                     <h1 className='text-black text-3xl md:text-5xl font-bold'>
                         We are here to make your journey flawless !
@@ -58,19 +71,31 @@ const About = () => {
                         Brand ladder: where ambition meets creativity. Your trusted partner to help you overcome any obstacles in the digital landscape. Meet our committed founder and team, dedicated in establishing your success.
                     </p>
                 </animated.aside>
-            </div>
+            </section>
 
 
-            <div className="mx-auto my-auto">
-                <img
+            <section className="mx-auto my-auto grid grid-cols-1 md:grid-cols-3 px-1 md:px-4">
+                {/* <img
                     src="https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/general%2Fabout-4.jpg?alt=media&token=3f0924f0-7f36-4522-8241-73f3afe42c26"
                     alt="BrandLadder"
                     className='min-w-full rounded'
                     loading='lazy'
-                />
-            </div>
+                /> */}
+                <div className='hidden lg:block lg:col-span-1 space-y-4 text-center md:text-right px-2'>
+                    <h1 className='text-black text-3xl font-semibold'>
+                        Happy <span className='text-orange-8'> Clients !!</span>
+                    </h1>
+                    <p className='text-sm'>
+                        Explore our client roster! From startups to industry leaders, our diverse clientele reflects our commitment to delivering tailored solutions.
 
-            <div className="my-8">
+                    </p>
+                </div>
+                <div className='col-span-3 lg:col-span-2 rounded-[40px] lg:rounded-r-full bg-orange-1 lg:bg-gradient-to-r from-orange-2 to-white overflow-hidden items-center justify-center h-fit'>
+                    <ClientsCarousel slides={clientsLogo} />
+                </div>
+            </section>
+
+            <section>
                 <h1 className='text-center my-6 text-3xl md:text-5xl text-black font-semibold md:font-bold'>
                     Our Founder
                 </h1>
@@ -118,9 +143,9 @@ const About = () => {
                         </div>
                     </animated.aside>
                 </div>
-            </div>
+            </section>
 
-            <div className='py-10'>
+            <section>
                 <h2>Meet Our Team</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     {teamData?.map((member, index) => (
@@ -139,7 +164,7 @@ const About = () => {
                         )
                     ))}
                 </div>
-            </div>
+            </section>
 
         </motion.section>
     )

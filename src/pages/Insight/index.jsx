@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, lazy, Suspense, useCallback, useMemo } from 'react'
 import { motion } from "framer-motion";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
@@ -9,10 +9,12 @@ import useSmoothScroll from '../../hooks/general/useSmoothScroll'
 import BlogImg1 from '../../assests/images/temprary/blog1.jpg'
 import BlogImg2 from '../../assests/images/temprary/blog2.jpg'
 
-import ImageCard from '../../components/cards/imageoverlap';
 // import BlogCard2 from '../../components/cards/blog/blog2';   
-import BlogCard from '../../components/cards/blog';
-import HoverCard from '../../components/cards/blog/blog3'
+const ImageCard = lazy(() => import('../../components/cards/imageoverlap'));
+const BlogCard = lazy(() => import('../../components/cards/blog'));
+const HoverCard = lazy(() => import('../../components/cards/blog/blog3'));
+const Loader = lazy(() => import('../../components/loader'));
+
 
 const InsightContent = () => {
     useSmoothScroll();
@@ -20,25 +22,29 @@ const InsightContent = () => {
     const bounceAnimationProps = useBounceAnimation();
 
     return (
-        <motion.section {...bounceAnimationProps} className='bg-orange-3 py-10'>
-            <Tabs>
-                <TabList className="flex justify-center">
-                    <Tab className="cursor-pointer text-black font-medium rounded-l-3xl py-2 px-6 border-b-2 border-transparent border-none active:shadow-2xl active:text-orange-8 focus:shadow-md focus:text-orange-8 hover:text-orange-4 transition-all duration-300  bg-white">
-                        Blogs
-                    </Tab>
-                    <Tab className="cursor-pointer text-black font-medium rounded-r-3xl py-2 px-6 border-b-2 border-transparent border-none active:shadow-2xl active:text-orange-8 focus:shadow-md focus:text-orange-8 hover:text-orange-4 transition-all duration-300  bg-white">
-                        Testimonials
-                    </Tab>
-                </TabList>
 
-                <TabPanel>
-                    <Blogs />
-                </TabPanel>
-                <TabPanel>
-                    <Testimonials />
-                </TabPanel>
-            </Tabs>
-        </motion.section>
+        <Suspense fallback={<Loader />}>
+            <motion.section {...bounceAnimationProps} className='bg-orange-3 py-10'>
+
+                <Tabs>
+                    <TabList className="flex justify-center">
+                        <Tab className="cursor-pointer text-black font-medium rounded-l-3xl py-2 px-6 border-b-2 border-transparent border-none active:shadow-2xl active:text-orange-8 focus:shadow-md focus:text-orange-8 hover:text-orange-4 transition-all duration-300  bg-white">
+                            Blogs
+                        </Tab>
+                        <Tab className="cursor-pointer text-black font-medium rounded-r-3xl py-2 px-6 border-b-2 border-transparent border-none active:shadow-2xl active:text-orange-8 focus:shadow-md focus:text-orange-8 hover:text-orange-4 transition-all duration-300  bg-white">
+                            Testimonials
+                        </Tab>
+                    </TabList>
+
+                    <TabPanel>
+                        <Blogs />
+                    </TabPanel>
+                    <TabPanel>
+                        <Testimonials />
+                    </TabPanel>
+                </Tabs>
+            </motion.section>
+        </Suspense>
     )
 }
 
@@ -47,23 +53,23 @@ const Blogs = () => {
     const [blogData, setBlogData] = useState()
     const { getTeamData: getBlogData } = useFirestore()
 
-    const handleFetchAllBlogsData = async () => {
+    const handleFetchAllBlogsData = useCallback(async () => {
         try {
-            const res = await getBlogData('blogs')
-            setBlogData(res)
-            // console.log(res)
+            const res = await getBlogData('blogs');
+            setBlogData(res);
         } catch (error) {
             console.error('error while fetching blog data: ', error);
         }
-    }
+    }, [getBlogData]);
+
+    const memoizedFetchAllBlogsData = useMemo(() => handleFetchAllBlogsData, [handleFetchAllBlogsData]);
 
     const firstNonArchivedBlog = blogData?.find(blog => !blog.archive);
 
     useEffect(() => {
-        handleFetchAllBlogsData()
+        memoizedFetchAllBlogsData()
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [memoizedFetchAllBlogsData])
 
     return (
         <section className='bg-inherit p-4'>

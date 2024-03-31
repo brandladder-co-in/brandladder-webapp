@@ -176,7 +176,7 @@ const Navbar = () => {
                                 </div>
                             </label>
                             <div className="dropdown-menu bg-white text-orange-10 space-y-2">
-                                <label className="cursor-pointer dropdown-item text-sm hover:bg-orange-1" htmlFor="modal-3">My Bag</label>
+                                <label className="cursor-pointer dropdown-item text-sm hover:bg-orange-1" htmlFor="cart-modal">My Bag</label>
                                 <Link to='/services' className="dropdown-item text-sm hover:bg-orange-1">Services</Link>
                                 {/* <div className="divider"></div> */}
                                 <button className="btn btn-outline-error" onClick={handleLogout} >Logout</button>

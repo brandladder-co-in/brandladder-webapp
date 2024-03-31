@@ -1,19 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { motion } from "framer-motion";
 
 import useBounceAnimation from '../hooks/animations/useBounceAnimation';
 import useSmoothScroll from '../hooks/general/useSmoothScroll';
 import { useFirestore } from '../context/FirestoreContext';
 import { useAuth } from '../context/AuthContext'
-
-// import PageHeader from '../components/headers/page-header'
-// import TestemonialCarousel from '../components/carousel/testimonial-carousel'
-// import BlogCard from '../components/cards/blog'
-import HomeHeroSection from '../components/sections/hero/home';
-import Pricing from '../components/sections/pricing';
-import HomeAboutSection from '../components/sections/about/home';
-
 import { digitalEssential, growthAcceleratr, dominanceSuit } from '../.data/plan-features'
+import { clientsLogo } from '../.data/clients';
+
+import Loader from '../components/loader';
+import HelmetComponent from '../helmet';
+
+const HomeHeroSection = lazy(() => import('../components/sections/hero/home'));
+const ClientsCarousel = lazy(() => import('../components/carousel/clients-carousel'));
+const Pricing = lazy(() => import('../components/sections/pricing'));
+const HomeAboutSection = lazy(() => import('../components/sections/about/home'));
+
 
 const Home = () => {
     useSmoothScroll();
@@ -80,25 +82,39 @@ const Home = () => {
     }, [currentUser, uploadUserData])
 
     return (
-        <motion.div {...bounceAnimationProps} >
-            <section className="bg-orange-2 p-10">
-                <HomeHeroSection currentUser={currentUser} />
-            </section>
+        <Suspense fallback={<Loader />}>
+            <motion.div {...bounceAnimationProps} >
 
-            <section className='px-2 md:px-14 pt-10 bg-orange-1'>
-                <HomeAboutSection />
-            </section>
-
-            <section className=''>
-                <div className="w-full h-20 md:h-32 bg-orange-2 rounded-tl-full rounded-tr-lg"></div>
-                <Pricing
-                    featureList1={digitalEssential}
-                    featureList2={growthAcceleratr}
-                    featureList3={dominanceSuit}
+                <HelmetComponent
+                    title='Home'
+                    desc=' Brand Ladder is a globally recognized digital marketing agency in Hyderabad, India, offering a comprehensive suite of services including SEO, PPC, social media marketing, UI/UX design, web development, CA services, CS, ROC, PAN/TAN, DSC, Payroll, MSME registrations, Auditing, FSSAI license, Labour License, and more. Partner with us to drive exceptional results for your business.'
+                    author='Anurag Kumar'
+                    keywords={['Brand Ladder', 'BrandLadder - Elevate Your Branding Strategy', 'Digital Marketing Agency', 'IT Servics and Consultancy', 'CA Services', 'Brandladder']}
+                    focusKeywords={['Brand Ladder', 'BrandLadder - Elevate Your Branding Strategy', 'Digital Marketing Agency', 'IT Servics and Consultancy', 'CA Services', 'Brandladder']}
                 />
-            </section>
 
-            {/* <section className='my-5'>
+                <section className="bg-orange-2 p-4 md:p-10">
+                    <HomeHeroSection currentUser={currentUser} />
+                </section>
+
+                <section className='border-2 bg-white shadow rounded-full overflow-hidden my-10'>
+                    <ClientsCarousel slides={clientsLogo} />
+                </section>
+
+                <section className='px-2 md:px-14 pt-10 bg-orange-1'>
+                    <HomeAboutSection />
+                </section>
+
+                <section className=''>
+                    <div className="w-full h-20 md:h-32 bg-orange-2 rounded-tl-full rounded-tr-lg"></div>
+                    <Pricing
+                        featureList1={digitalEssential}
+                        featureList2={growthAcceleratr}
+                        featureList3={dominanceSuit}
+                    />
+                </section>
+
+                {/* <section className='my-5'>
                 <PageHeader
                     title='Trusted by all'
                     subtitle='Trusted by 21 million customer around the world'
@@ -106,11 +122,11 @@ const Home = () => {
                 />
                 <div className="my-5">
                     <TestemonialCarousel testemonialList={testemonialList} />
-                </div>
-            </section>
-
-            <section className='my-10 px-10'>
-                <PageHeader
+                    </div>
+                    </section>
+                    
+                    <section className='my-10 px-10'>
+                    <PageHeader
                     title='Blogs'
                     section={true}
                 />
@@ -137,10 +153,9 @@ const Home = () => {
                     </div>
                 </div>
             </section> */}
-        </motion.div >
+            </motion.div >
+        </Suspense>
     )
 }
 
 export default Home
-
-
