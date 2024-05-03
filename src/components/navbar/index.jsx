@@ -8,10 +8,12 @@ import ScrollProgressBar from '../progress-bar/ScrollProgress';
 import CartModal from '../modal/cart'
 
 import { RxAvatar } from "react-icons/rx";
-import { MdOutlineContacts, MdKeyboardArrowDown, MdOutlineEmojiEvents } from "react-icons/md";
+// MdOutlineAddChart
+import { MdOutlineContacts, MdKeyboardArrowDown } from "react-icons/md";
 import { IoPricetagsOutline, IoCaretDown, IoCaretUp } from "react-icons/io5";
 import { FaRegBuilding, FaHome } from "react-icons/fa";
-import { GrServices, GrArticle } from "react-icons/gr";
+import { GrServices } from "react-icons/gr";
+import { CgWebsite } from "react-icons/cg";
 
 import PageFlipSound from '../../assests/sound/page-flip.mp3'
 import Sidebar from './sidebar';
@@ -55,31 +57,41 @@ const Navbar = () => {
             title: 'Pricing',
             icon: <IoPricetagsOutline />,
         },
+        // {
+        //     path: '/our-portfolio',
+        //     title: 'Portfolio',
+        //     icon: <MdOutlineAddChart />,
+        // },
         {
-            title: 'Our Offering',
-            dropdownItems: [
-                {
-                    path: '/services',
-                    title: 'Services',
-                    icon: <GrServices />,
-                },
-                {
-                    path: '/events',
-                    title: 'Events',
-                    icon: <MdOutlineEmojiEvents />,
-                },
-                {
-                    path: '/investment',
-                    title: 'Investment',
-                    icon: <MdOutlineContacts />,
-                },
-            ]
+            path: '/our-innovation',
+            title: 'Innovation',
+            icon: <CgWebsite />,
         },
         {
-            path: '/insight',
-            title: 'Insights',
-            icon: <GrArticle />,
+            path: '/services',
+            title: 'Services',
+            icon: <GrServices />,
         },
+        // {
+        //     title: 'Our Offering',
+        //     dropdownItems: [
+        //         {
+        //             path: '/events',
+        //             title: 'Events',
+        //             icon: <MdOutlineEmojiEvents />,
+        //         },
+        //         {
+        //             path: '/investment',
+        //             title: 'Investment',
+        //             icon: <MdOutlineContacts />,
+        //         },
+        //     ]
+        // },
+        // {
+        //     path: '/insight',
+        //     title: 'Insights',
+        //     icon: <GrArticle />,
+        // },
         {
             path: '/about',
             title: 'AboutUs',

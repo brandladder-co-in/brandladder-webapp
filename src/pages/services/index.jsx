@@ -11,6 +11,7 @@ import HelmetComponent from '../../helmet';
 
 import { techServices, digitalServices, caServices } from '../../.data/servicelist';
 
+const ContactForm = lazy(() => import('../../components/form/contact'));
 const ServiceSection = lazy(() => import('../../components/sections/service'));
 
 const Services = () => {
@@ -107,6 +108,12 @@ const Services = () => {
                 <div className="my-16">
                     <ServiceSection serviceList={filteredServices} sectionTitle={sectionTitle} />
                 </div>
+
+                <section>
+                    <div className="bg-orange-3 px-4 py-8 md:px-16 md:py-12 shadow-2xl rounded-sm">
+                        <ContactForm />
+                    </div>
+                </section>
             </motion.div>
         </Suspense>
     )

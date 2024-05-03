@@ -14,6 +14,7 @@ import { FaInstagram } from "react-icons/fa6";
 import { TbBrandFacebook } from "react-icons/tb";
 import { MdOutlineMailOutline } from "react-icons/md";
 
+import ContactForm from '../../components/form/contact';
 import TeamCard from '../../components/cards/team';
 import ClientsCarousel from '../../components/carousel/clients-carousel';
 import HelmetComponent from '../../helmet';
@@ -166,6 +167,11 @@ const About = () => {
                 </div>
             </section>
 
+            <section>
+                <div className="bg-orange-3 px-4 py-8 md:px-16 md:py-12 shadow-2xl rounded-sm">
+                    <ContactForm />
+                </div>
+            </section>
         </motion.section>
     )
 }

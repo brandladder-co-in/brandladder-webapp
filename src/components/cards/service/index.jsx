@@ -17,7 +17,13 @@ const ServiceCard = ({ image, title, desc, pricing, trending = false }) => {
   return (
     <div className={`card py-8 px-3 ${trending ? 'bg-orange-4' : 'bg-orange-3'}`}>
       <div className="overflow-hidden w-full h-80" >
-        <img src={image} alt={title} loading='lazy' className='h-full w-full my-auto mx-auto' />
+        {
+          image ? (
+            <img src={image} alt={title} loading='lazy' className='h-full w-full my-auto mx-auto' />
+          ) : (
+            <img src={'https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/general%2Ffull-logo.png?alt=media&token=5a963339-c8d7-42f1-9b21-fc29358196e6'} alt={title} loading='lazy' className='h-full w-full my-auto mx-auto' />
+          )
+        }
       </div>
       <div className="card-body p-0">
         <h2 className="card-header text-gray-600 text-sm">
