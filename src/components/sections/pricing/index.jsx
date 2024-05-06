@@ -1,11 +1,9 @@
-import React, { useState, lazy } from 'react';
-// import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, lazy, useEffect } from 'react';
 
 import useFadeInUpAnimation from '../../../hooks/animations/useFadeInUpAnimation';
-// import useFadeInLeftAnimation from '../../../hooks/animations/useFadeInLeftAnimation';
-// import useFadeInRightAnimation from '../../../hooks/animations/useFadeInRightAnimation';
 import { featureList, startupFeatureList, platinumFeatureList, eliteFeatureList, seoServicesList, appServicesList, featureListStartUp, featureListPlatinum, featureListElete } from '../../../.data/plan-features'
 
+// const LoactionPermission = lazy(() => import('../../modal/location-permission'));
 const PageHeader = lazy(() => import('../../headers/page-header'));
 const PricingTable = lazy(() => import('../../tables/pricing-table'));
 const PricingContent = lazy(() => import('../../cards/pricing/content'));
@@ -13,20 +11,39 @@ const SpecificPricing = lazy(() => import('../../cards/pricing/specific-pricing'
 
 const Pricing = () => {
     const [selectedTab, setSelectedTab] = useState('web');
+    // const [showLocationRequestModal, setShowLocationRequestModal] = useState(true);
+
 
     const [fadeInUpRef1, fadeInUp1] = useFadeInUpAnimation();
-    // const [fadeInUpRef2, fadeInUp2] = useFadeInUpAnimation();
-    // const [fadeInUpRef3, fadeInUp3] = useFadeInUpAnimation();
-
-    // const [fadeInLeftRef1, fadeInLeft1] = useFadeInLeftAnimation();
-    // const [fadeInLeftRef2, fadeInLeft2] = useFadeInLeftAnimation();
-
-    // const [fadeInRightRef1, fadeInRight1] = useFadeInRightAnimation();
-    // const [fadeInRightRef2, fadeInRight2] = useFadeInRightAnimation();
 
     const handleTabChange = (tab) => {
         setSelectedTab(tab);
     };
+
+    const handleLoactionRequset = async () => {
+        if (navigator.geolocation) {
+            try {
+                const response = await navigator.geolocation.getCurrentPosition();
+                console.log("Location granted:", response);
+                // Use the location data here (if needed)
+            } catch (error) {
+                console.error("Error getting location:", error);
+            }
+        } else {
+            console.error("Geolocation is not supported by this browser.");
+        }
+    }
+
+    // const handleLocationAction = (action) => {
+    //     if (action === 'allow') {
+    //         handleLoactionRequset(); // Call function to request location
+    //     }
+    //     setShowLocationRequestModal(false); // Hide modal after any action
+    // }
+
+    useEffect(() => {
+        handleLoactionRequset();
+    }, [])
 
     return (
         <section className='bg-orange-2 mb-10 py-10 lg:px-10 px-2 w-full'>
@@ -90,6 +107,7 @@ const Pricing = () => {
                 )
             }
 
+            {/* <LoactionPermission /> */}
         </section>
     )
 }

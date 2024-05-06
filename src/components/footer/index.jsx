@@ -181,25 +181,64 @@ const Footer = () => {
                                 <AiTwotoneMail className='my-auto mx-2' /> info@brandladder.co.in
                             </a>
                         </div>
-                        <div className="flex">
-                            <a
-                                href="https://www.google.com/maps"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Our address"
-                                title="Our address"
-                                className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800 flex"
-                            >
-                                <IoLocationOutline className='my-auto mx-2' /> High line Complex,<br />
-                                Banjarahills Hyderabad, 500034, Telangana, <br />
-                                INDIA
-                            </a>
-                        </div>
+                        <section className='flex'>
+                            <aside>
+                                <IoLocationOutline className='h-full my-auto mx-2' />
+                            </aside>
+                            <aside className='space-y-4'>
+                                <div>
+                                    <b>Head Office: </b>10603 Porto CtSan Diego,
+                                    CA 92124, USA
+                                </div>
+                                <div>
+                                    <a
+                                        href="https://www.google.com/maps"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Our address"
+                                        title="Our address"
+                                        className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
+                                    >
+                                        <b>Sales Office: </b> High line Complex,
+                                        Banjarahills Hyderabad, 500034, Telangana,
+                                        INDIA
+                                    </a>
+                                </div>
+                            </aside>
+                        </section>
+                        {/* <div className="flex">
+                            <aside>
+                                <a
+                                    href="https://www.google.com/maps"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Our address"
+                                    title="Our address"
+                                    className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800 flex"
+                                >
+                                    <IoLocationOutline className='my-auto mx-2' />
+                                    10603 Porto CtSan Diego,
+                                    CA 92124, USA
+                                </a>
+                                <a
+                                    href="https://www.google.com/maps"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Our address"
+                                    title="Our address"
+                                    className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800 flex"
+                                >
+                                    <IoLocationOutline className='my-auto mx-2' /> High line Complex,
+                                    Banjarahills Hyderabad, 500034, Telangana,
+                                    INDIA
+                                </a>
+                            </aside>
+                        </div> */}
                     </div>
                 </div>
             </div>
             <div className='bg-orange-3 py-3 mx-auto text-center'>
-                <h4 className='font-semibold text-sm' >© 2023 Brandladder™. All Rights Reserved.</h4>
+                <h4 className='font-semibold text-sm' >© 2024 Brandladder Technology Pvt Ltd.</h4>
             </div>
         </footer>
     )

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useFirestore } from '../../../context/FirestoreContext';
 import { showSuccessToast, showErrorToast } from '../../tosters'
+import { countryPhoneCode } from '../../../.data/no-code'
 
 const ContactForm = () => {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [selectedCountry, setSelectedCountry] = useState('');
     const [phone, setPhone] = useState('');
     const [confirmPhone, setConfirmPhone] = useState('');
     const [msg, setMsg] = useState('');
@@ -87,13 +89,27 @@ const ContactForm = () => {
                     value={email}
                     onChange={(value) => { setEmail(value.target.value) }}
                 />
-                <input
-                    className="input-ghost border-inherit text-orange-10 max-w-full bg-white  input"
-                    placeholder="Phone No"
-                    type='tel'
-                    value={phone}
-                    onChange={(value) => { setPhone(value.target.value) }}
-                />
+                <aside className='grid grid-cols-1 md:grid-cols-5 gap-4'>
+                    <select
+                        className="input-ghost border-inherit text-orange-10 max-w-full bg-white col-span-2 input"
+                        value={selectedCountry}
+                        onChange={(value) => { setSelectedCountry(value.target.value) }}
+                    >
+                        <option value="">Select Country</option>
+                        {countryPhoneCode.map((country, index) => (
+                            <option key={index} value={country.countryCodes}>
+                                {country.country}
+                            </option>
+                        ))}
+                    </select>
+                    <input
+                        className="input-ghost border-inherit text-orange-10 max-w-full bg-white col-span-3 input"
+                        placeholder="Phone No"
+                        type='tel'
+                        value={phone}
+                        onChange={(value) => { setPhone(value.target.value) }}
+                    />
+                </aside>
                 <input
                     className="input-ghost border-inherit text-orange-10 max-w-full bg-white  input"
                     placeholder="Confirm Phone No"
