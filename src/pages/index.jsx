@@ -12,8 +12,10 @@ import HelmetComponent from '../helmet';
 
 const HomeHeroSection = lazy(() => import('../components/sections/hero/home'));
 // const ClientsCarousel = lazy(() => import('../components/carousel/clients-carousel'));
+const PageHeader = lazy(() => import('../components/headers/page-header'));
 const Pricing = lazy(() => import('../components/sections/pricing'));
 const HomeAboutSection = lazy(() => import('../components/sections/about/home'));
+const InnovationSection = lazy(() => import('../components/sections/products/innovations'));
 const ContactForm = lazy(() => import('../components/form/contact'));
 
 
@@ -107,6 +109,11 @@ const Home = () => {
                 <section className=''>
                     <div className="w-full h-20 md:h-32 bg-orange-2 rounded-tl-full rounded-tr-lg"></div>
                     <Pricing />
+                </section>
+
+                <section>
+                    <PageHeader title="Brandladder's Innovative Products" section={true} />
+                    <InnovationSection />
                 </section>
 
                 <section>

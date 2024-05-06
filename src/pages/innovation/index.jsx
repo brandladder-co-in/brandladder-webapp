@@ -1,8 +1,8 @@
-import React, { lazy, Suspense, useState, useEffect } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { motion } from "framer-motion";
-import { animated } from 'react-spring';
+// import { animated } from 'react-spring';
 
-import { useFirestore } from '../../context/FirestoreContext';
+// import { useFirestore } from '../../context/FirestoreContext';
 import HelmetComponent from '../../helmet';
 
 import useBounceAnimation from '../../hooks/animations/useBounceAnimation';
@@ -10,36 +10,37 @@ import useBounceAnimation from '../../hooks/animations/useBounceAnimation';
 import useSmoothScroll from '../../hooks/general/useSmoothScroll';
 
 import Loader from '../../components/loader';
+const InnovationSection = lazy(() => import('../../components/sections/products/innovations'));
 const ContactForm = lazy(() => import('../../components/form/contact'));
 const PageHeader = lazy(() => import('../../components/headers/page-header'));
-const PortfolioGrid = lazy(() => import('../../components/cards/project'));
+// const PortfolioGrid = lazy(() => import('../../components/cards/project'));
 
 const Innovations = () => {
     useSmoothScroll();
 
-    const [products, setproducts] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    // const [products, setproducts] = useState([]);
+    // const [isLoading, setIsLoading] = useState(true);
 
-    const { getTeamData: fetchClientData } = useFirestore();
+    // const { getTeamData: fetchClientData } = useFirestore();
     // const [fadeInUpRef, fadeInUp] = useFadeInUpAnimation()
     const bounceAnimationProps = useBounceAnimation();
 
-    useEffect(() => {
-        const handleFetchClientData = async () => {
-            try {
-                const res = await fetchClientData('innovations');
-                setproducts(res)
-            } catch (error) {
-                console.error("Error fetching client data: ", error);
-            } finally {
-                setIsLoading(false);
-            }
-        }
+    // useEffect(() => {
+    //     const handleFetchClientData = async () => {
+    //         try {
+    //             const res = await fetchClientData('innovations');
+    //             setproducts(res)
+    //         } catch (error) {
+    //             console.error("Error fetching client data: ", error);
+    //         } finally {
+    //             setIsLoading(false);
+    //         }
+    //     }
 
-        handleFetchClientData();
+    //     handleFetchClientData();
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [])
 
     return (
         <Suspense fallback={<Loader />} >
@@ -56,7 +57,9 @@ const Innovations = () => {
                     title='Innovation'
                     subtitle='Lorem ipsum dolor sit amet consectetur. Amet tellus dolor est scelerisque duis blandit diam vitae. Sapien proin lobortis feugiat dui consectetur tempus. SemperLorem ipsum dolor sit amet consectetur.'
                 />
-                {
+
+                <InnovationSection />
+                {/* {
                     isLoading ? (
                         <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-28 py-8 px-4 md:px-10 lg:px-18'>
                             <div className="skeleton-pulse mx-auto h-80" />
@@ -86,7 +89,7 @@ const Innovations = () => {
 
                         </section>
                     )
-                }
+                } */}
 
                 <section>
                     <div className="bg-orange-3 px-4 py-8 md:px-16 md:py-12 shadow-2xl rounded-sm">

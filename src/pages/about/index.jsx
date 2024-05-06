@@ -156,6 +156,7 @@ const About = () => {
                                 image={member.img}
                                 name={member.name}
                                 designation={member.designation}
+                                about={member.bio}
                                 twitterLink={member.twitter}
                                 emailLink={member.email}
                                 instaLink={member.insta}

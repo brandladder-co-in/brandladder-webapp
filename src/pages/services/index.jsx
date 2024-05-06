@@ -45,7 +45,7 @@ const Services = () => {
             break;
         default:
             serviceList = [...techServices, ...digitalServices, ...caServices];
-            sectionTitle = '';
+            sectionTitle = 'All Services';
             break;
     }
 
