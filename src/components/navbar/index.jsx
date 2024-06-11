@@ -54,7 +54,7 @@ const Navbar = () => {
         },
         {
             path: '/plans',
-            title: 'Pricing',
+            title: 'Plans',
             icon: <IoPricetagsOutline />,
         },
         // {

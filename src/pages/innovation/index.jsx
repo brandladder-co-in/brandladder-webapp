@@ -55,7 +55,7 @@ const Innovations = () => {
                 />
                 <PageHeader
                     title='Innovation'
-                    subtitle='Lorem ipsum dolor sit amet consectetur. Amet tellus dolor est scelerisque duis blandit diam vitae. Sapien proin lobortis feugiat dui consectetur tempus. SemperLorem ipsum dolor sit amet consectetur.'
+                    subtitle='Team Brandladder not only delivers exceptional services in tech and marketing but also innovates unique products that benefit humanity.'
                 />
 
                 <InnovationSection />

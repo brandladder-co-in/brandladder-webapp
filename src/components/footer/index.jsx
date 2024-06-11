@@ -98,7 +98,7 @@ const Footer = () => {
                                 Get weekly offers delivered to your inbox directly
                             </h4>
                             <small className="mt-4 text-sm text-gray-800">
-                                At BrandLadder, we are more than just a digital media company; we are your partners in achieving a prominent digital presence.
+                                Brandladder is a leading tech and marketing company dedicated to providing a wide range of innovative services. Our expertise spans across cutting-edge technology solutions and comprehensive marketing strategies, designed to elevate your brand and drive business growth. We specialize in digital marketing, web development, app development, SEO, social media management, and data analytics.
                             </small>
                         </div>
                     </div>

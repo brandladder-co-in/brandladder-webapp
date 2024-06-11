@@ -39,7 +39,8 @@ const About = () => {
         const fetchTeamData = async () => {
             try {
                 const res = await getTeamData('team');
-                setTeamData(res);
+                const sortedTeamData = res.sort((a, b) => a.rank - b.rank);
+                setTeamData(sortedTeamData);
             } catch (error) {
                 console.log('Error while getting team data: ', error);
             }

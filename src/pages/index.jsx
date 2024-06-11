@@ -112,7 +112,7 @@ const Home = () => {
                 </section>
 
                 <section>
-                    <PageHeader title="Brandladder's Innovative Products" section={true} />
+                    <PageHeader title="Brandladder's Innovative Solutions" section={true} />
                     <InnovationSection />
                 </section>
 
