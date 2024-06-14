@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const useUserLocation = () => {
-    const [userCountry, setUserCountry] = useState('US'); // Default to US if user location is not available
+    const [userCountry, setUserCountry] = useState('US');
 
     const getUserLocation = async () => {
         try {
@@ -29,37 +29,7 @@ const useUserLocation = () => {
         }
     };
 
-    const askForLocationAccess = async () => {
-        try {
-            const permission = await new Promise((resolve, reject) => {
-                navigator.permissions.query({ name: 'geolocation' }).then(permissionStatus => {
-                    resolve(permissionStatus.state);
-                }).catch(error => {
-                    reject(error);
-                });
-            });
-
-            if (permission === 'granted') {
-                await getUserLocation();
-                // showSuccessToast('Location permission granted.');
-            } else if (permission === 'prompt') {
-                // Prompt the user for geolocation permission
-                // showErrorToast('Location permission is required for good user experience.')
-            } else {
-                // showSuccessToast('Location permission denied.');
-            }
-        } catch (error) {
-            console.error('Error asking for geolocation permission:', error);
-        }
-    };
-
-    useEffect(() => {
-        askForLocationAccess();
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
-    return userCountry;
+    return { userCountry, getUserLocation };
 };
 
 export default useUserLocation;

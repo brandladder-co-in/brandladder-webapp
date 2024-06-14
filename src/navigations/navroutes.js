@@ -1,7 +1,7 @@
 import Home from '../pages';
 import Plans from '../pages/plans';
 import Services from '../pages/services'
-// import Insight from '../pages/Insight';
+import Insight from '../pages/Insight';
 // import Events from '../pages/events';
 // import EventDtl from '../pages/events/event-dtl';
 // import Blogs from '../pages/Insight/blogs'
@@ -25,10 +25,10 @@ export const UnAuthenticateRoutes = [
         path: '/plans',
         element: <Plans />,
     },
-    // {
-    //     path: '/insight',
-    //     element: <Insight />,
-    // },
+    {
+        path: '/insight',
+        element: <Insight />,
+    },
     // {
     //     path: '/blogs',
     //     element: <Blogs />,

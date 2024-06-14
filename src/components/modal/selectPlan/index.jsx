@@ -29,11 +29,12 @@ const SelectPlan = ({ title, isPresent }) => {
                 showSuccessToast("Your Order Booked, Our Team Will Contact You")
                 setIsModalOpen(false); // Close modal
             } catch (error) {
-                console.log("Error while adding data into cart: ", error);
+                console.error("Error while adding data into cart: ", error);
                 showErrorToast("Oops!! Something went wrong. Please try again later.")
             }
         }, (error) => {
             console.error("Error getting location: ", error);
+            showErrorToast("Location permsi.")
         });
     }
 

@@ -38,7 +38,7 @@ export function AuthProvider({ children }) {
             clearError();
         } catch (error) {
             setError(error.message);
-            console.log('Error while creating new user: ', error)
+            console.error('Error while creating new user: ', error)
         }
     };
 

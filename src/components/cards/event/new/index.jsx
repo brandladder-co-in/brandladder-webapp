@@ -9,11 +9,6 @@ const NewEventCard = ({ date, title, img, orgDtls, eventType, desc }) => {
     const descWords = desc?.split(/\s+/);
     const shortenedDesc = descWords?.slice(0, 12).join(' ');
 
-    useEffect(() => {
-        console.log(date)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
     return (
         <>
             <div className="card card-image-cover bg-inherit shadow-lg">

@@ -26,45 +26,6 @@ const Home = () => {
     const { uploadUserData } = useFirestore()
     const bounceAnimationProps = useBounceAnimation();
 
-    // const testemonialList = [
-    //     {
-    //         image: Img,
-    //         name: 'BrandLadder',
-    //         designation: 'CEO and Founder',
-    //         content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum exercitationem ipsa in orem ipsum dolor sit amet consectetur adipisicing elit. Eum exercitationem ipsa in orem ipsum dolor sit amet consectetur adipisicing elit. Eum exercitationem ipsa in tempora. Tenetur corrupti autem modi labore dolor. Debitis, nesciunt'
-    //     },
-    //     {
-    //         image: Img,
-    //         name: 'BrandLadder',
-    //         designation: 'CEO and Founder',
-    //         content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum exercitationem ipsa in tempora. Tenetur corrupti autem modi labore dolor. Debitis, nesciunorem ipsum dolor sit amet consectetur adipisicing elit. Eum exercitationem ipsa in orem ipsum dolor sit amet consectetur adipisicing elit. Eum exercitationem ipsa in t'
-    //     },
-    //     {
-    //         image: Img,
-    //         name: 'BrandLadder',
-    //         designation: 'CEO and Founder',
-    //         content: 'Loreorem ipsum dolor sit amet consectetur adipisicing elit. Eum exercitationem ipsa in orem ipsum dolor sit amet consectetur adipisicing elit. Eum exercitationem ipsa in m ipsum dolor sit amet consectetur adipisicing elit. Eum exercitationem ipsa in tempora. Tenetur corrupti autem modi labore dolor. Debitis, nesciunt'
-    //     },
-    //     {
-    //         image: Img,
-    //         name: 'BrandLadder',
-    //         designation: 'CEO and Founder',
-    //         content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum exercorem ipsum dolor sit amet consectetur adipisicing elit. Eum exercitationem ipsa in orem ipsum dolor sit amet consectetur adipisicing elit. Eum exercitationem ipsa in itationem ipsa in tempora. Tenetur corrupti autem modi labore dolor. Debitis, nesciunt'
-    //     },
-    //     {
-    //         image: Img,
-    //         name: 'BrandLadder',
-    //         designation: 'CEO and Founder',
-    //         content: 'orem ipsum dolor sit amet consectetur adipisicing elit. Eum exercitationem ipsa in orem ipsum dolor sit amet consectetur adipisicing elit. Eum exercitationem ipsa in Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum exercitationem ipsa in tempora. Tenetur corrupti autem modi labore dolor. Debitis, nesciunt'
-    //     },
-    //     {
-    //         image: Img,
-    //         name: 'BrandLadder',
-    //         designation: 'CEO and Founder',
-    //         content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eorem ipsum dolor sit amet consectetur adipisicing elit. Eum exercitationem ipsa in orem ipsum dolor sit amet consectetur adipisicing elit. Eum exercitationem ipsa in um exercitationem ipsa in tempora. Tenetur corrupti autem modi labore dolor. Debitis, nesciunt'
-    //     },
-    // ]
-
     useEffect(() => {
         const userData = JSON.parse(localStorage.getItem('userData'));
 
@@ -94,7 +55,7 @@ const Home = () => {
             />
             <motion.div {...bounceAnimationProps} >
 
-                <section className="bg-orange-2 p-4 md:p-10">
+                <section className="bg-gradient-to-br from-orange-2 from-15% via-orange-1 to-white to-75% p-4 md:p-10">
                     <HomeHeroSection currentUser={currentUser} />
                 </section>
 
@@ -106,8 +67,8 @@ const Home = () => {
                     <HomeAboutSection />
                 </section>
 
-                <section className=''>
-                    <div className="w-full h-20 md:h-32 bg-orange-2 rounded-tl-full rounded-tr-lg"></div>
+                <section className='bg-gradient-to-br from-orange-1 from-5% via-orange-2 to-orange-2 to-75% rounded-tl-3xl'>
+                    {/* <div className="w-full h-20 md:h-32 bg-orange-2 rounded-tl-full rounded-tr-lg" /> */}
                     <Pricing />
                 </section>
 

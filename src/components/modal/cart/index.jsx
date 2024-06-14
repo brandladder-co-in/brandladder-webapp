@@ -19,17 +19,16 @@ const CardModal = () => {
         const handleGetCartData = async () => {
             try {
                 const res = await getAllSubdocumentData('users', currentUser.uid, 'orders')
-                // console.log(res)
                 setCartData(res);
 
             } catch (error) {
-                console.log("Error while fetching cart data: ", error);
+                console.error("Error while fetching cart data: ", error);
             }
         }
+
         handleGetCartData()
 
     }, [currentUser.uid, getAllSubdocumentData])
-
 
     return (
         <div>

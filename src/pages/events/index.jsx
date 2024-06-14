@@ -93,8 +93,6 @@ const Events = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [teamImg]);
 
-    // console.log(eventData)
-
     return (
         <motion.div {...bounceAnimationProps}>
             <section

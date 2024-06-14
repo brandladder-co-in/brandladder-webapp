@@ -25,7 +25,6 @@ const InsightContent = () => {
 
         <Suspense fallback={<Loader />}>
             <motion.section {...bounceAnimationProps} className='bg-orange-3 py-10'>
-
                 <Tabs>
                     <TabList className="flex justify-center">
                         <Tab className="cursor-pointer text-black font-medium rounded-l-3xl py-2 px-6 border-b-2 border-transparent border-none active:shadow-2xl active:text-orange-8 focus:shadow-md focus:text-orange-8 hover:text-orange-4 transition-all duration-300  bg-white">

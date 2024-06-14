@@ -16,7 +16,7 @@ const Contact = () => {
     const bounceAnimationProps = useBounceAnimation();
 
     return (
-        <motion.section {...bounceAnimationProps} className='bg-orange-2 py-4  p-2 md:p-10'>
+        <motion.section {...bounceAnimationProps} className='bg-gradient-to-b from-orange-2 to-orange-1 py-4 p-2 md:p-10'>
 
             <HelmetComponent
                 title='Contact Us'
@@ -37,7 +37,7 @@ const Contact = () => {
                         className='mb-5 rounded-lg hidden w-0 lg:block lg:w-full'
                         loading='lazy'
                     />
-                    <div className="flex flex-col space-y-4 justify-between rounded-xl p-10 bg-orange-3">
+                    <div className="flex flex-col space-y-4 justify-between rounded-xl p-10 bg-orange-2 shadow-md">
                         <aside className='grid grid-cols-5 gap-4'>
                             <IoMailOutline className='text-5xl col-span-2 text-center mx-auto' />
                             <div className="flex flex-col text-black col-span-3">
@@ -54,7 +54,7 @@ const Contact = () => {
                         </aside>
                     </div>
                 </aside>
-                <aside className='bg-orange-3 p-4 md:p-10 rounded-xl mx-auto col-span-3 space-y-10'>
+                <aside className='bg-orange-2 shadow-md p-4 md:p-10 rounded-xl mx-auto col-span-3 space-y-10'>
                     <ContactForm />
                 </aside>
             </div>

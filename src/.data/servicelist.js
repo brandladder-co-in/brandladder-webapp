@@ -155,7 +155,7 @@ export const digitalServices = [
 export const caServices = [
     {
         title: 'Income Tax, GST',
-        img: '',
+        img: 'https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/services%2FcaServices%2Fincome_tax_and_gst.jpg?alt=media&token=de1d6783-70c6-42dd-b539-18c86689e311',
         desc: 'Expert assistance with income tax and GST filings, ensuring compliance with regulations and maximizing tax efficiency for individuals and businesses.',
     },
     {
@@ -170,7 +170,7 @@ export const caServices = [
     },
     {
         title: 'Auditing',
-        img: '',
+        img: 'https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/services%2FcaServices%2Fauditing.jpg?alt=media&token=cec10a50-8153-42af-86d5-efd26c41a2d5',
         desc: 'Thorough auditing services conducted by experienced professionals to assess financial integrity, identify risks, and ensure regulatory compliance.',
     },
     {
@@ -180,7 +180,7 @@ export const caServices = [
     },
     {
         title: 'Labour Licence',
-        img: '',
+        img: 'https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/services%2FcaServices%2Flabour_licence.jpg?alt=media&token=7136001d-7b2b-4c84-b8fc-8f645dae0906',
         desc: 'Assistance with obtaining labour licenses, facilitating legal compliance and ensuring a smooth workforce management process for businesses.',
     },
     {
@@ -205,12 +205,12 @@ export const caServices = [
     },
     {
         title: 'Payroll',
-        img: '',
+        img: 'https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/services%2FcaServices%2Fpayroll.jpg?alt=media&token=d0d5b876-b1c4-45a4-aafd-0db1d01f2818',
         desc: 'Comprehensive payroll management services, ensuring timely and accurate processing of employee salaries, taxes, and benefits.',
     },
     {
         title: 'PF, PT, ESIC',
-        img: '',
+        img: 'https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/services%2FcaServices%2FPF_PT_ESIC.jpg?alt=media&token=bd10efb0-6544-4475-915d-0f33ba88ada3',
         desc: 'Assistance with PF (Provident Fund), PT (Professional Tax), and ESIC (Employees\' State Insurance Corporation) compliance, ensuring adherence to statutory requirements.',
     },
     {

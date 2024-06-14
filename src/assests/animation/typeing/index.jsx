@@ -9,11 +9,11 @@ const TextReplacementAnimation = () => {
             sequence={[
                 `Build And Grow Your Business By Digital Marketing`,
                 1000,
-                'Build And Grow Your Business By CA services',
+                'Build And Grow Your Business By Digital Advertising',
                 1000,
                 'Build And Grow Your Business By Technological services',
                 1000,
-                'Build And Grow Your Business By And Much More',
+                'Build And Grow Your Business By And Much More ...',
                 1000,
             ]}
             speed={10}

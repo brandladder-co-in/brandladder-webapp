@@ -9,6 +9,7 @@ import useFadeInUpAnimation from '../../../../hooks/animations/useFadeInUpAnimat
 import { FaArrowDownLong } from "react-icons/fa6";
 import { HiOutlineClipboardDocumentList } from "react-icons/hi2";
 
+import VidModal from '../../../modal/vid-modal';
 import FeatureCard from '../../../cards/feature/counting'
 
 import TextReplacementAnimation from '../../../../assests/animation/typeing';
@@ -31,9 +32,10 @@ const HomeHeroSection = ({ currentUser }) => {
                     </div>
                     <TextReplacementAnimation />
                     <div className="flex">
-                        <button className="btn btn-sm btn-outline-secondary text-orange-6 border-orange-6 shadow-xl hover:text-orange-2 hover:bg-orange-6 mx-2">
+                        <label className="btn btn-sm btn-outline-secondary text-orange-6 border-orange-6 shadow-xl hover:text-orange-2 hover:bg-orange-6 mx-2"
+                            htmlFor='vid-modal-intro-vid'>
                             Play Video
-                        </button>
+                        </label>
                         {
                             !currentUser && (
                                 <Link to='/signup' >
@@ -75,6 +77,7 @@ const HomeHeroSection = ({ currentUser }) => {
                 <FeatureCard icon={<HiOutlineClipboardDocumentList />} count='50 ' text='Happy clients' />
                 <FeatureCard icon={<HiOutlineClipboardDocumentList />} count='40 ' text='Services' />
             </animated.div>
+            <VidModal id='intro-vid' />
         </>
     )
 }

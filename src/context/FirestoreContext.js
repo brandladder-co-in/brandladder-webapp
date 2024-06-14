@@ -35,7 +35,7 @@ export function FirestoreProvider({ children }) {
         try {
             const docRef = doc(db, collectionName, docId);
             await setDoc(docRef, {});
-            console.log("Empty document successfully uploaded!");
+            console.error("Empty document successfully uploaded!");
             return true;
         } catch (error) {
             console.error("Error uploading empty document: ", error);
@@ -57,7 +57,7 @@ export function FirestoreProvider({ children }) {
             // Update the fields inside the subdocument
             await setDoc(subdocRef, fieldsData, { merge: true });
 
-            console.log("Nested data successfully uploaded!");
+            console.error("Nested data successfully uploaded!");
             return true;
         } catch (error) {
             console.error("Error uploading nested data: ", error);
@@ -85,7 +85,6 @@ export function FirestoreProvider({ children }) {
             const docRef = doc(db, collectionName, docId);
             const docSnapshot = await getDoc(docRef);
             if (docSnapshot.exists()) {
-                // console.log(docSnapshot.data())
                 return docSnapshot.data();
             } else {
                 console.error("Document does not exist");
@@ -152,7 +151,6 @@ export function FirestoreProvider({ children }) {
             const subdocRef = doc(collection(docRef, subcollectionName), subdocId);
 
             await deleteDoc(subdocRef);
-            console.log("Subdocument deleted successfully!");
             return true;
         } catch (error) {
             console.error("Error deleting subdocument: ", error);

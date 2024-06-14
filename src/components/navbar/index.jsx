@@ -8,12 +8,10 @@ import ScrollProgressBar from '../progress-bar/ScrollProgress';
 import CartModal from '../modal/cart'
 
 import { RxAvatar } from "react-icons/rx";
-// MdOutlineAddChart
 import { MdOutlineContacts, MdKeyboardArrowDown } from "react-icons/md";
 import { IoPricetagsOutline, IoCaretDown, IoCaretUp } from "react-icons/io5";
-import { FaRegBuilding, FaHome } from "react-icons/fa";
+import { FaRegBuilding, FaHome, FaRegLightbulb } from "react-icons/fa";
 import { GrServices } from "react-icons/gr";
-import { CgWebsite } from "react-icons/cg";
 
 import PageFlipSound from '../../assests/sound/page-flip.mp3'
 import Sidebar from './sidebar';
@@ -65,7 +63,7 @@ const Navbar = () => {
         {
             path: '/our-innovation',
             title: 'Innovation',
-            icon: <CgWebsite />,
+            icon: <FaRegLightbulb />,
         },
         {
             path: '/services',

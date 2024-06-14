@@ -25,7 +25,7 @@ const Plans = () => {
                 keywords={['BrandLadder Services - Enhance Your Branding Efforts', 'Digital Marketing Agency in Hyderabad', ' brand ladder']}
                 focusKeywords={['BrandLadder Services - Enhance Your Branding Efforts', 'Digital Marketing Agency in Hyderabad', ' brand ladder']}
             />
-            <motion.section {...bounceAnimationProps} className='bg-orange-2 relative'>
+            <motion.section {...bounceAnimationProps} className='bg-gradient-to-br from-orange-1 from-15% via-orange-2 to-orange-1 to-65% relative'>
                 <Pricing />
                 <section>
                     <div className="bg-orange-3 px-4 py-8 md:px-16 md:py-12 shadow-2xl rounded-sm">

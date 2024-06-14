@@ -5,8 +5,6 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const ClientsCarousel = ({ slides }) => {
 
-
-
     const settings = {
         dots: false,
         infinite: true,

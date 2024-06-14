@@ -10,7 +10,6 @@ const PortfolioGrid = lazy(() => import('../../components/cards/project'));
 const Portfolio = () => {
 
     const [Clients, setClients] = useState([]);
-    console.log(Clients)
     const { getTeamData: fetchClientData } = useFirestore();
 
     useEffect(() => {
@@ -53,7 +52,7 @@ const Portfolio = () => {
                     <PortfolioGrid />
                 </div>
             </section>
-
+            {Clients && console.log('object')}
             <section>
                 <div className="bg-orange-3 px-4 py-8 md:px-16 md:py-12 shadow-2xl rounded-sm">
                     <ContactForm />
