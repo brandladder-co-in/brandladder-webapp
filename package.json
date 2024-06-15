@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@anuragkmr_45/encrypt-decrypt": "^1.0.1",
     "@everapi/freecurrencyapi-js": "^1.0.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -19,6 +20,7 @@
     "react-hot-toast": "^2.4.1",
     "react-icons": "^5.0.1",
     "react-intersection-observer": "^9.6.0",
+    "react-player": "^2.16.0",
     "react-router-dom": "^6.21.3",
     "react-scripts": "5.0.1",
     "react-share": "^5.1.0",

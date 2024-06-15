@@ -19,7 +19,7 @@ module.exports = {
         "gray-1": "var(--gray-1)",
       },
       fontFamily: {
-        poppins: ['"Poppins"', "sans-serif"],
+        poppins: ["Raleway"],
       },
     },
   },

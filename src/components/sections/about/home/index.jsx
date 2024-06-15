@@ -18,27 +18,6 @@ const HomeAboutSection = () => {
     const [fadeInRightRef3, fadeInRight3] = useFadeInRightAnimation();
     const [fadeInLeftRef3, fadeInLeft3] = useFadeInLeftAnimation();
 
-    // const imgSpringProps1 = useSpring({
-    //     from: { transform: 'translateY(10px)' },
-    //     to: { transform: 'translateY(-10px)' },
-    //     loop: { reverse: true },
-    //     config: { duration: 3000 },
-    // });
-
-    // const imgSpringProps2 = useSpring({
-    //     from: { transform: 'translateY(10px)' },
-    //     to: { transform: 'translateY(-10px)' },
-    //     loop: { reverse: true },
-    //     config: { duration: 3000, delay: 200 },
-    // });
-
-    // const imgSpringProps3 = useSpring({
-    //     from: { transform: 'translateY(10px)' },
-    //     to: { transform: 'translateY(-10px)' },
-    //     loop: { reverse: true },
-    //     config: { duration: 3000, delay: 400 },
-    // });
-
     return (
         <section className='my-4'>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 md:mb-0">
@@ -57,10 +36,10 @@ const HomeAboutSection = () => {
                         Digital Services
                     </h2>
                     <p className='text-gray-500'>
-                        We tailor services to fit your unique needs in today's saturated digital market. From social strategies to UI/UX and top-tier SEO, Brand Ladder is your all-in-one digital marketing solution. Our approach is simple: we elevate your business at every step, with experts in social media, content creation, lead generation, Google ads, and more. Join our family and experience unprecedented growth.
+                        We tailor services to fit your unique needs in today's saturated digital market. From social strategies to UI/UX and top-tier SEO, Brandladder is your all-in-one digital marketing solution. Our approach is simple: we elevate your business at every step, with experts in social media, content creation, lead generation, Google ads, and more. Join our family and experience unprecedented growth.
                     </p>
                     <Link to='/services'>
-                        <OutlineButton text="Learn More" />
+                        <OutlineButton text="Know More" />
                     </Link>
                 </animated.div>
 
@@ -92,15 +71,15 @@ const HomeAboutSection = () => {
 
                 <animated.div className='flex flex-col my-auto space-y-4 flex-grow'
                     ref={fadeInLeftRef2}
-                    style={{ ...fadeInLeft2, flexBasis: 0 }} // Add flexBasis: 0
+                    style={{ ...fadeInLeft2, flexBasis: 0 }}
                 >
                     <h2 className='text-gray-600 text-3xl md:text-4xl font-normal md:font-semibold'>
-                        Technical Services
+                        Software Solutions
                     </h2>
-                    <p className='text-gray-500'>We offer expertly integrated solutions, tailored to your needs. From web development reflecting your brand's identity to user-friendly applications, Brand Ladder enhances your digital presence. Our AI/ML-driven innovations boost productivity, while cloud solutions aid growth. With a focus on page speed and maintenance services, stay ahead with Brand Ladder. Partner with us to expand your business's technical horizon.
+                    <p className='text-gray-500'>We offer expertly integrated solutions, tailored to your needs. From web development reflecting your brand's identity to user-friendly applications, Brandladder enhances your digital presence. Our AI/ML-driven innovations boost productivity, while cloud solutions aid growth. With a focus on page speed and maintenance services, stay ahead with Brandladder. Partner with us to expand your business's technical horizon.
                     </p>
                     <Link to='/services'>
-                        <OutlineButton text="Learn More" />
+                        <OutlineButton text="Know More" />
                     </Link>
                 </animated.div>
             </div>
@@ -114,10 +93,10 @@ const HomeAboutSection = () => {
                         CA And Finance Services
                     </h2>
                     <p className='text-gray-500'>
-                        We've partnered with top Chartered Accountants in India to offer comprehensive CA services. Our expert team ensures accurate and transparent financial handling. From accounting to acquiring licenses and permits, net worth certificates, payroll management, and more, we've got you covered. Trust Brand Ladder for your financial needs, allowing you to focus on growing your business.
+                        We've partnered with top Chartered Accountants in India to offer comprehensive CA services. Our expert team ensures accurate and transparent financial handling. From accounting to acquiring licenses and permits, net worth certificates, payroll management, and more, we've got you covered. Trust Brandladder for your financial needs, allowing you to focus on growing your business.
                     </p>
                     <Link to='/services'>
-                        <OutlineButton text="Learn More" />
+                        <OutlineButton text="Know More" />
                     </Link>
                 </animated.div>
 

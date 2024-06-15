@@ -80,7 +80,7 @@ const Footer = () => {
                         >
                             <img src="https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/general%2Ffull-logo.png?alt=media&token=5a963339-c8d7-42f1-9b21-fc29358196e6" alt="brandladder" />
                         </Link>
-                        <div className="my-6">
+                        <div className="mt-6 space-y-2">
                             <div className="grid grid-cols-3 gap-0">
                                 <input
                                     className="input max-w-full text-orange-10 bg-orange-1 border-orange-5 col-span-2 h-14"
@@ -102,6 +102,7 @@ const Footer = () => {
                             </small>
                         </div>
                     </div>
+
                     <div className='my-auto hidden lg:block' >
                         <span className="text-base font-bold tracking-wide text-gray-900">
                             Quick Links
@@ -136,7 +137,7 @@ const Footer = () => {
                         </div>
                     </div>
                     <div className="my-auto space-y-2 text-sm sm:col-span-2 mx-auto">
-                        <div className='flex my-2 justify-evenly lg:justify-end' >
+                        <div className='flex justify-evenly lg:justify-end' >
                             <small className='my-auto font-medium text-lg text-black hidden lg:block' >
                                 Connect With Our <span className='text-orange-10'> Social Apps</span>
                             </small>
@@ -158,9 +159,9 @@ const Footer = () => {
                                 }
                             </div>
                         </div>
-                        <p className="text-base font-bold tracking-wide text-gray-900">
+                        {/* <p className="text-base font-bold tracking-wide text-gray-900">
                             Made with love in India
-                        </p>
+                        </p> */}
                         <div className="flex">
                             <a
                                 href="+91 9391523930"
@@ -238,7 +239,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className='bg-orange-3 py-3 mx-auto text-center'>
-                <h4 className='font-semibold text-sm' >© 2024 Brandladder Technology Pvt Ltd.</h4>
+                <h4 className='font-semibold text-sm' >© 2024 Brandladder Technologies Pvt Ltd.</h4>
             </div>
         </footer>
     )

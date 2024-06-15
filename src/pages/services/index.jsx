@@ -72,7 +72,7 @@ const Services = () => {
 
     return (
         <Suspense fallback={<Loader />}>
-            <motion.div {...bounceAnimationProps} className='p-5 bg-orange-2'>
+            <motion.div {...bounceAnimationProps} className='p-5 bg-gradient-to-br from-orange-1 from-5% to-orange-2 to-90%'>
                 <HelmetComponent
                     title='Services'
                     desc='Brand Ladder is the leading provider of integrated digital marketing services in Hyderabad. Our offerings encompass SEO, SEM, social media marketing, email marketing, CA services, CS, ROC, PAN/TAN, DSC, Payroll, MSME registrations, Auditing, FSSAI license, Labour License, and more. Elevate your online presence with our strategic solutions tailored to your business needs.'

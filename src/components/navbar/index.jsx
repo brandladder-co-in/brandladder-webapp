@@ -41,8 +41,8 @@ const Navbar = () => {
     }, []);
 
     const navbarClass = isSticky ?
-        'navbar navbar-sticky z-50 bg-orange-2 transition-opacity duration-300 ease-in-out' :
-        'navbar z-50 bg-orange-2 transition-opacity duration-300 ease-in-out';
+        'navbar navbar-sticky z-50 bg-orange-2 transition-all duration-500 ease-in-out' :
+        'navbar shadow-none z-50 bg-inherit transition-all duration-500 ease-in-out';
 
     const navLinks = [
         {

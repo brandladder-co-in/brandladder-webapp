@@ -7,6 +7,7 @@ import useFadeInRightAnimation from '../../../../hooks/animations/useFadeInRight
 import useFadeInUpAnimation from '../../../../hooks/animations/useFadeInUpAnimation'
 
 import { FaArrowDownLong } from "react-icons/fa6";
+import { FaRegPlayCircle } from "react-icons/fa";
 import { HiOutlineClipboardDocumentList } from "react-icons/hi2";
 
 import VidModal from '../../../modal/vid-modal';
@@ -32,14 +33,14 @@ const HomeHeroSection = ({ currentUser }) => {
                     </div>
                     <TextReplacementAnimation />
                     <div className="flex">
-                        <label className="btn btn-sm btn-outline-secondary text-orange-6 border-orange-6 shadow-xl hover:text-orange-2 hover:bg-orange-6 mx-2"
+                        <label className="btn btn-outline-secondary text-orange-6 border-orange-6 shadow-xl hover:text-orange-2 hover:bg-orange-6"
                             htmlFor='vid-modal-intro-vid'>
-                            Play Video
+                            <FaRegPlayCircle className='my-auto mr-2' /> Play Intro
                         </label>
                         {
                             !currentUser && (
                                 <Link to='/signup' >
-                                    <button className="btn btn-sm btn-secondary bg-orange-6 shadow-xl hover:bg-orange-2 hover:text-orange-6 mx-2">
+                                    <button className="btn btn-secondary bg-orange-6 shadow-xl hover:bg-orange-2 hover:text-orange-6 mx-2">
                                         Join Us
                                     </button>
                                 </Link>
@@ -74,7 +75,7 @@ const HomeHeroSection = ({ currentUser }) => {
             >
                 <FeatureCard icon={<HiOutlineClipboardDocumentList />} count='60 ' text='Projects Done' />
                 <FeatureCard icon={<HiOutlineClipboardDocumentList />} count='25 ' text='Projects Running' />
-                <FeatureCard icon={<HiOutlineClipboardDocumentList />} count='50 ' text='Happy clients' />
+                <FeatureCard icon={<HiOutlineClipboardDocumentList />} count='50 ' text='Happy Brands' />
                 <FeatureCard icon={<HiOutlineClipboardDocumentList />} count='40 ' text='Services' />
             </animated.div>
             <VidModal id='intro-vid' />
