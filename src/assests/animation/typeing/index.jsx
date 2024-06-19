@@ -1,4 +1,3 @@
-import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
 // import useSound from 'use-sound';
 
@@ -11,7 +10,7 @@ const TextReplacementAnimation = () => {
                 1000,
                 'Build And Grow Your Business By Digital Advertising',
                 1000,
-                'Build And Grow Your Business By Technological services',
+                'Build And Grow Your Business By Software Solutions',
                 1000,
                 'Build And Grow Your Business By And Much More ...',
                 1000,

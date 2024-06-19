@@ -1,5 +1,3 @@
-import React from 'react';
-// import PropType from 'prop-types'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
@@ -53,9 +51,5 @@ const EventCarousel = ({ eventList }) => {
         </Swiper>
     );
 };
-
-// EventCarousel.propTypes = {
-//     eventList: PropTypes.array.isRequired,
-// };
 
 export default EventCarousel;

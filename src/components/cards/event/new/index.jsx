@@ -1,6 +1,3 @@
-import React, { useEffect } from 'react';
-// import { Link } from 'react-router-dom';
-
 import { FaArrowRight } from "react-icons/fa";
 
 const NewEventCard = ({ date, title, img, orgDtls, eventType, desc }) => {

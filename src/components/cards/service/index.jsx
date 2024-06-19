@@ -1,10 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types';
+import { lazy } from 'react';
 import { Link } from 'react-router-dom';
 
-import SelectPlan from '../../../components/modal/selectPlan'
 import useEmailAuth from '../../../hooks/auth/useEmailAuth'
 import useUserDocIDSearch from '../../../hooks/general/useUserDocIDSearch'
+
+import LazyLoadImg from '../../lazy-loading/img/LazyLoadImage';
+const SelectPlan = lazy(() => import('../../modal/selectPlan'));
 
 const ServiceCard = ({ image, title, desc, pricing, trending = false }) => {
 
@@ -19,9 +20,11 @@ const ServiceCard = ({ image, title, desc, pricing, trending = false }) => {
       <div className="overflow-hidden w-full h-80 my-auto" >
         {
           image ? (
-            <img src={image} alt={title} loading='lazy' className='h-full w-full my-auto mx-auto' />
+            <LazyLoadImg src={image} alt={title} className='h-full w-full my-auto mx-auto' />
           ) : (
-            <img src={'https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/general%2Ffull-logo.png?alt=media&token=5a963339-c8d7-42f1-9b21-fc29358196e6'} alt={title} loading='lazy' className='h-3/6 w-5/6 my-auto mx-auto' />
+            <LazyLoadImg src={'https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/general%2Ffull-logo.png?alt=media&token=5a963339-c8d7-42f1-9b21-fc29358196e6'}
+              alt={title}
+              className='h-3/6 w-5/6 my-auto mx-auto' />
           )
         }
       </div>
@@ -64,13 +67,6 @@ const ServiceCard = ({ image, title, desc, pricing, trending = false }) => {
       </div>
     </div>
   )
-}
-
-ServiceCard.propTypes = {
-  image: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  desc: PropTypes.string.isRequired,
-  pricing: PropTypes.number,
 }
 
 export default ServiceCard;

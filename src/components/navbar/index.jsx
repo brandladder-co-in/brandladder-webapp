@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, cloneElement } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import useSound from 'use-sound';
 import { useNavigate } from 'react-router-dom';
@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import useEmailAuth from '../../hooks/auth/useEmailAuth'
 import ScrollProgressBar from '../progress-bar/ScrollProgress';
 import CartModal from '../modal/cart'
+import LazyLoadImg from '../lazy-loading/img/LazyLoadImage';
 
 import { RxAvatar } from "react-icons/rx";
 import { MdOutlineContacts, MdKeyboardArrowDown } from "react-icons/md";
@@ -121,7 +122,7 @@ const Navbar = () => {
             <ScrollProgressBar />
             <div className="navbar-start">
                 <Link to="/" className="navbar-item max-w-40">
-                    <img
+                    <LazyLoadImg
                         src="https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/general%2Ffull-logo.png?alt=media&token=5a963339-c8d7-42f1-9b21-fc29358196e6"
                         alt="Brnadladder"
                         loading='lazy'
@@ -150,7 +151,7 @@ const Navbar = () => {
                                                     to={item.path}
                                                     className="dropdown-item my-auto flex flex-row items-center hover:bg-orange-4 hover:text-orange-1 space-x-10 z-50">
 
-                                                    {item.icon && React.cloneElement(item.icon, { className: 'my-auto mx-2' })}
+                                                    {item.icon && cloneElement(item.icon, { className: 'my-auto mx-2' })}
                                                     {/* {item.icon}  */}
                                                     {item.title}
                                                 </Link>
@@ -167,7 +168,7 @@ const Navbar = () => {
                                         closeDrawer();
                                     }}
                                 >
-                                    {data.icon && React.cloneElement(data.icon, { className: 'my-auto mx-1' })}
+                                    {data.icon && cloneElement(data.icon, { className: 'my-auto mx-1' })}
                                     {data.title}
                                 </Link>
                             )}

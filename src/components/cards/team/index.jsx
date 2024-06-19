@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -8,6 +7,7 @@ import { TbBrandFacebook } from 'react-icons/tb';
 import { MdOutlineMailOutline } from 'react-icons/md';
 import { BsTwitterX } from 'react-icons/bs';
 
+import LazyLoadImg from '../../lazy-loading/img/LazyLoadImage';
 import useFadeInUpAnimation from '../../../hooks/animations/useFadeInUpAnimation';
 
 const TeamCard = ({ image, name, designation, about, twitterLink, emailLink, instaLink, facebookLink, linkedinLink }) => {
@@ -22,7 +22,7 @@ const TeamCard = ({ image, name, designation, about, twitterLink, emailLink, ins
         <motion.div className="card p-6 bg-inherit shadow-none" style={fadeInUp} ref={fadeInUpRef} >
             <div className="card-content">
                 <div className="w-full h-64 md:h-80 px-6 overflow-hidden relative top-8 image-container">
-                    <img src={image} alt={name} loading="lazy" className="h-full w-full rounded-lg " />
+                    <LazyLoadImg src={image} alt={name} className="h-full w-full rounded-lg " />
                 </div>
                 <div className='flex flex-col bg-orange-5 items-center space-y-4 pt-10 p-4 shadow rounded-lg justify-center'>
                     <div>

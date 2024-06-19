@@ -6,10 +6,10 @@ import { useFirestore } from '../../context/FirestoreContext';
 import useBounceAnimation from '../../hooks/animations/useBounceAnimation';
 import useSmoothScroll from '../../hooks/general/useSmoothScroll'
 
+import LazyLoadImg from '../../components/lazy-loading/img/LazyLoadImage';
 import BlogImg1 from '../../assests/images/temprary/blog1.jpg'
 import BlogImg2 from '../../assests/images/temprary/blog2.jpg'
 
-// import BlogCard2 from '../../components/cards/blog/blog2';   
 const ImageCard = lazy(() => import('../../components/cards/imageoverlap'));
 const BlogCard = lazy(() => import('../../components/cards/blog'));
 const HoverCard = lazy(() => import('../../components/cards/blog/blog3'));
@@ -222,7 +222,7 @@ const Testimonials = () => {
     return (
         <section className='bg-inherit'>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-6">
-                <img
+                <LazyLoadImg
                     src='https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/team%2F1706971961993.jpg?alt=media&token=905e09bf-d68a-4edb-833a-eb0ef235e3b6'
                     alt="Brandladder"
                     loading='lazy'

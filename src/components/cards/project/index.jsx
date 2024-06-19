@@ -1,17 +1,26 @@
-import React from 'react';
+import { lazy } from 'react';
 import { FaArrowRightLong } from "react-icons/fa6";
-import PreojectModal from '../../modal/project';
+
+import LazyLoadImg from '../../lazy-loading/img/LazyLoadImage';
+
+const PreojectModal = lazy(() => import('../../modal/project'));
 
 const ProjectCard = ({ img, title, desc, subtitle, type, insta, website }) => {
+
     return (
 
         img && (
             <div className="card card-image-cover bg-inherit h-96  hover:relative hover:bottom-2 transition-all duration-700">
                 <div className='rounded-md h-56 w-full overflow-y-hidden flex justify-center items-center'>
-                    <img
-                        src={img}
-                        className='w-full h-full'
-                        loading='lazy' alt={title} />
+                    {
+                        img && (
+                            <LazyLoadImg
+                                src={img}
+                                className='w-full h-full'
+                                alt={title}
+                            />
+                        )
+                    }
                 </div>
                 <div className="card-body grid grid-cols-3">
                     <div className='col-span-2'>

@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
-import Wave from 'react-wavify'
+import { useState } from 'react';
+import Wave from 'react-wavify';
 import { Link } from 'react-router-dom';
 
-import { useFirestore } from '../../context/FirestoreContext'
-import { showSuccessToast, showErrorToast } from '../../components/tosters'
+import { useFirestore } from '../../context/FirestoreContext';
+import { showSuccessToast, showErrorToast } from '../../components/tosters';
+import LazyLoadImg from '../lazy-loading/img/LazyLoadImage';
 
 import { VscSignIn } from "react-icons/vsc";
 import { IoPricetagsOutline, IoLocationOutline } from "react-icons/io5";
@@ -78,7 +79,7 @@ const Footer = () => {
                             title="Company"
                             className="inline-flex items-center"
                         >
-                            <img src="https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/general%2Ffull-logo.png?alt=media&token=5a963339-c8d7-42f1-9b21-fc29358196e6" alt="brandladder" />
+                            <LazyLoadImg src="https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/general%2Ffull-logo.png?alt=media&token=5a963339-c8d7-42f1-9b21-fc29358196e6" alt="brandladder" />
                         </Link>
                         <div className="mt-6 space-y-2">
                             <div className="grid grid-cols-3 gap-0">

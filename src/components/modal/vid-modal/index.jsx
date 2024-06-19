@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import ReactPlayer from 'react-player';
 
 const VidModal = ({ id }) => {

@@ -1,7 +1,7 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 import useEmailAuth from '../../../hooks/auth/useEmailAuth';
+import LazyLoadImg from '../../lazy-loading/img/LazyLoadImage';
 
 import { FaHome, FaRegLightbulb, FaSignInAlt, FaSignOutAlt } from 'react-icons/fa'
 import { GrServices } from 'react-icons/gr'
@@ -29,7 +29,7 @@ const Sidebar = () => {
             <div className="drawer bg-orange-2">
                 <div className="drawer-content h-full min-w-100">
                     <div className="flex justify-between">
-                        <img
+                        <LazyLoadImg
                             src="https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/general%2Ffull-logo.png?alt=media&token=5a963339-c8d7-42f1-9b21-fc29358196e6"
                             alt="BrandLadder"
                             className='w-4/5'

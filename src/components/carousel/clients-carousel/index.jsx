@@ -1,9 +1,11 @@
-import React from 'react';
 import Slider from 'react-slick';
+import LazyLoadImg from '../../lazy-loading/img/LazyLoadImage';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const ClientsCarousel = ({ slides }) => {
+import { clientsLogo } from '../../../.data/clients';
+
+const ClientsCarousel = () => {
 
     const settings = {
         dots: false,
@@ -54,9 +56,9 @@ const ClientsCarousel = ({ slides }) => {
     return (
         <div className="w-full py-3 md:py-4">
             <Slider {...settings}>
-                {slides.map((slide, index) => (
+                {clientsLogo && clientsLogo?.map((slide, index) => (
                     <div key={index}>
-                        <img src={slide} alt='brandladder' loading='lazy' className="cursor-grab h-10 md:h-20 my-auto mx-auto" />
+                        <LazyLoadImg src={slide} alt='brandladder' loading='lazy' className="cursor-grab h-10 md:h-20 my-auto mx-auto" />
                     </div>
                 ))}
             </Slider>

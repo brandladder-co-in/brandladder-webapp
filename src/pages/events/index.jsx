@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from "framer-motion";
 import { animated } from 'react-spring';
 
@@ -14,6 +14,7 @@ import { FaGlobe } from "react-icons/fa";
 import { MdArrowOutward } from "react-icons/md";
 
 import EventCarousel from '../../components/carousel/event-carousel';
+import LazyLoadImg from '../../ components/lazy-loading/img/LazyLoadImage';
 
 // import { eventsData, preEventsData } from '../../.data/event'
 // import PreviousEvents from '../../components/cards/event/previous';
@@ -109,19 +110,18 @@ const Events = () => {
                         <h4 className='flex text-black font-semibold my-auto text-base md:text-xl lg:text-3xl' >Event platfrom
                             <FaGlobe className='mx-2 my-auto text-xl md:text-2xl lg:text-4xl' /> for you</h4>
                     </div>
-                    <img src="https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/general%2Ftitle-bg.png?alt=media&token=ee5eb414-64f3-4471-8fdd-5004439b5cee" alt="Brandladder"
-                        loading='lazy'
+                    <LazyLoadImg src="https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/general%2Ftitle-bg.png?alt=media&token=ee5eb414-64f3-4471-8fdd-5004439b5cee"
+                        alt="Brandladder"
                         className='w-24 md:w-44 absolute top-20 right-12 block md:hidden'
                     />
                     <div className="flex flex-wrap">
                         {
                             loadedImages === teamImg.length ? (
                                 teamImg.map((data, index) => (
-                                    <img
+                                    <LazyLoadImg
                                         key={index}
                                         src={data}
                                         className='h-10 w-8 md:h-12 md:w-10 m-1'
-                                        loading='lazy'
                                         alt="Brandladder"
                                     />
                                 ))
@@ -185,7 +185,7 @@ const Events = () => {
                     ref={fadeInLeftRef}
                     style={fadeInLeft}
                 >
-                    <img
+                    <LazyLoadImg
                         src="https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/general%2Fevent-hero.png?alt=media&token=1fee5bf9-dfe3-4253-8293-8fc74fc4eee4"
                         alt="Brandladder"
                         loading='lazy'
@@ -215,7 +215,7 @@ const Events = () => {
             </section>
 
             {/* <section className='space-y-12'>
-                <img src="https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/general%2Ftitle-bg.png?alt=media&token=ee5eb414-64f3-4471-8fdd-5004439b5cee" alt=""
+                <LazyLoadImg src="https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/general%2Ftitle-bg.png?alt=media&token=ee5eb414-64f3-4471-8fdd-5004439b5cee" alt=""
                     className='w-24 md:w-44 absolute z-0'
                 />
                 <h2 className='text-black font-semibold text-2xl text-center z-10'>Discover something for every interest: Explore our past events</h2>

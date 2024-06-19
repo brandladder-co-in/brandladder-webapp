@@ -1,4 +1,3 @@
-import React from 'react'
 import { motion } from "framer-motion";
 
 import useBounceAnimation from '../../hooks/animations/useBounceAnimation';
@@ -9,6 +8,7 @@ import { IoMailOutline } from "react-icons/io5";
 
 import HelmetComponent from '../../helmet';
 import ContactForm from '../../components/form/contact';
+import LazyLoadImg from '../../components/lazy-loading/img/LazyLoadImage';
 
 const Contact = () => {
     useSmoothScroll();
@@ -31,8 +31,8 @@ const Contact = () => {
                 {/* <div className="flex flex-col-reverse md:flex-col lg:flex-row justify-evenly space-y-6"> */}
                 <aside className='mx-auto col-span-2 w-full'>
 
-                    <img
-                        src="https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/gifs%2FMap%20GIF.gif?alt=media&token=6b076312-8f89-448b-9f16-c05899b22b0c"
+                    <LazyLoadImg
+                        src="https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/gifs%2FMap%20GIF%20(1).gif?alt=media&token=e26131f9-d9ef-4c40-97d5-8f15a06dd1d2"
                         alt="BrandLadder"
                         className='mb-5 rounded-lg hidden w-0 lg:block lg:w-full'
                         loading='lazy'

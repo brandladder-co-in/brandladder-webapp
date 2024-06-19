@@ -1,5 +1,4 @@
 import { Toaster } from 'react-hot-toast';
-
 import Navigations from './navigations';
 import Navbar from './components/navbar';
 import Footer from './components/footer';

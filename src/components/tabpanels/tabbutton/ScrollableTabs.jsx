@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const ScrollableTabs = ({ tabs, onSelect }) => {
     const [selectedTab, setSelectedTab] = useState(tabs[0].key);

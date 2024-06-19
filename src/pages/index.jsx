@@ -1,23 +1,20 @@
-import React, { useEffect, lazy, Suspense } from 'react';
+import { useEffect, lazy, Suspense, useMemo, useCallback } from 'react';
 import { motion } from "framer-motion";
 
 import useBounceAnimation from '../hooks/animations/useBounceAnimation';
 import useSmoothScroll from '../hooks/general/useSmoothScroll';
 import { useFirestore } from '../context/FirestoreContext';
-import { useAuth } from '../context/AuthContext'
-// import { clientsLogo } from '../.data/clients';
+import { useAuth } from '../context/AuthContext';
 
 import Loader from '../components/loader';
 import HelmetComponent from '../helmet';
+import HomeHeroSection from '../components/sections/home/home-hero';
+import HomeAboutSection from '../components/sections/home/about';
 
-const HomeHeroSection = lazy(() => import('../components/sections/hero/home'));
-// const ClientsCarousel = lazy(() => import('../components/carousel/clients-carousel'));
 const PageHeader = lazy(() => import('../components/headers/page-header'));
 const Pricing = lazy(() => import('../components/sections/pricing'));
-const HomeAboutSection = lazy(() => import('../components/sections/about/home'));
 const InnovationSection = lazy(() => import('../components/sections/products/innovations'));
 const ContactForm = lazy(() => import('../components/form/contact'));
-
 
 const Home = () => {
     useSmoothScroll();
@@ -26,23 +23,24 @@ const Home = () => {
     const { uploadUserData } = useFirestore()
     const bounceAnimationProps = useBounceAnimation();
 
-    useEffect(() => {
-        const userData = JSON.parse(localStorage.getItem('userData'));
+    const userData = useMemo(() => JSON.parse(localStorage.getItem('userData')), []);
 
-        const handleUplaodUserData = async () => {
-            if (userData && currentUser !== null) {
-                try {
-                    await uploadUserData('users', currentUser.uid, userData);
-                    localStorage.removeItem('userData');
-                } catch (error) {
-                    console.error("error while uploading user data: ", error)
-                }
+    const handleUploadUserData = useCallback(async () => {
+        if (userData && currentUser !== null) {
+            try {
+                await uploadUserData('users', currentUser.uid, userData);
+                localStorage.removeItem('userData');
+            } catch (error) {
+                console.error("error while uploading user data: ", error);
             }
         }
+    }, [currentUser, uploadUserData, userData]);
 
-        handleUplaodUserData();
+    useEffect(() => {
 
-    }, [currentUser, uploadUserData])
+        handleUploadUserData();
+
+    }, [handleUploadUserData])
 
     return (
         <Suspense fallback={<Loader />}>
@@ -59,10 +57,6 @@ const Home = () => {
                     <HomeHeroSection currentUser={currentUser} />
                 </section>
 
-                {/* <section className='border-2 bg-white shadow rounded-full overflow-hidden my-10'>
-                    <ClientsCarousel slides={clientsLogo} />
-                </section> */}
-
                 <section className='px-2 md:px-14 pt-10 bg-orange-1'>
                     <HomeAboutSection />
                 </section>
@@ -78,50 +72,10 @@ const Home = () => {
                 </section>
 
                 <section>
-                    <div className="bg-orange-3 px-4 py-8 md:px-16 md:py-12 shadow-2xl rounded-sm">
+                    <div className="bg-gradient-to-b from-orange-1 via-orange-2 to-orange-3 px-4 py-8 md:px-16 md:py-12 shadow-2xl rounded-sm">
                         <ContactForm />
                     </div>
                 </section>
-
-                {/* <section className='my-5'>
-                <PageHeader
-                    title='Trusted by all'
-                    subtitle='Trusted by 21 million customer around the world'
-                    section={true}
-                />
-                <div className="my-5">
-                    <TestemonialCarousel testemonialList={testemonialList} />
-                    </div>
-                    </section>
-                    
-                    <section className='my-10 px-10'>
-                    <PageHeader
-                    title='Blogs'
-                    section={true}
-                />
-                <div className="my-5">
-                    <div className="grid lg:grid-cols-4 gap-4">
-                        <div>
-                            <BlogCard
-                                image={Img}
-                                domain='Test Blog'
-                                topic='Text Blog'
-                                content='Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum exercitationem ipsa in tempora. Tenetur corrupti autem modi labore dolor.'
-                                link='/insight'
-                            />
-                        </div>
-                        <div>
-                            <BlogCard
-                                image={Img}
-                                domain='Test Blog'
-                                topic='Text Blog'
-                                content='Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum exercitationem ipsa in tempora. Tenetur corrupti autem modi labore dolor.'
-                                link='/insight'
-                            />
-                        </div>
-                    </div>
-                </div>
-            </section> */}
             </motion.div >
         </Suspense>
     )

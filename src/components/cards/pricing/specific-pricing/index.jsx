@@ -1,21 +1,4 @@
-import React, { useEffect, useState } from 'react';
-
-const SpecificPricing = ({ title, amount, featureList, currencyData }) => {
-    const [currency, setCurrency] = useState(null);
-
-    useEffect(() => {
-        const convertedCurrencyData = async () => {
-            try {
-                const res = await currencyData(amount);
-                setCurrency(res)
-            } catch (error) {
-                console.error('Error fetching currency inside SpecificPricing card:', error);
-            }
-        }
-
-        convertedCurrencyData();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+const SpecificPricing = ({ title, amount, featureList }) => {
 
     return (
         <div className='card bg-orange-1'>
@@ -27,8 +10,9 @@ const SpecificPricing = ({ title, amount, featureList, currencyData }) => {
                         <div className='border-2 rounded-xl border-orange-4 bg-orange-4' />
                     </div>
                     {
-                        currency && (
-                            <h1 className='text-4xl'>{currency.currencySigns} {currency.currencyRate}</h1>
+                        amount && (
+                            <h1 className='text-4xl'>$ {amount}</h1>
+                            // <h1 className='text-4xl'>{currency.currencySigns} {currency.currencyRate}</h1>
                         )
                     }
                 </div>

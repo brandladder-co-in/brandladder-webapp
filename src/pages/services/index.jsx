@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react';
+import { useState, useEffect, Suspense, lazy, useCallback } from 'react';
 import { motion } from "framer-motion";
 import { animated } from 'react-spring';
 
@@ -8,11 +8,10 @@ import useSmoothScroll from '../../hooks/general/useSmoothScroll';
 
 import Loader from '../../components/loader';
 import HelmetComponent from '../../helmet';
-
 import { techServices, digitalServices, caServices } from '../../.data/servicelist';
 
-const ContactForm = lazy(() => import('../../components/form/contact'));
 const ServiceSection = lazy(() => import('../../components/sections/service'));
+const ContactForm = lazy(() => import('../../components/form/contact'));
 
 const Services = () => {
     useSmoothScroll();
@@ -24,9 +23,10 @@ const Services = () => {
     const [fadeInDownRef, fadeInDown] = useFadeInDownAnimation()
     const bounceAnimationProps = useBounceAnimation();
 
-    const handleInputChange = (event) => {
+    const handleInputChange = useCallback((event) => {
         setSearchQuery(event.target.value);
-    };
+    }, [setSearchQuery]);
+
 
     let serviceList;
     let sectionTitle;
@@ -54,21 +54,22 @@ const Services = () => {
         service.desc.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
+    const handleScroll = useCallback(() => {
+        if (window.pageYOffset > 100) {
+            setMaxWidth('max-w-4xl');
+        } else {
+            setMaxWidth('max-w-xl');
+        }
+    }, []);
+
     useEffect(() => {
-        const handleScroll = () => {
-            if (window.pageYOffset > 100) {
-                setMaxWidth('max-w-4xl');
-            } else {
-                setMaxWidth('max-w-xl');
-            }
-        };
 
         window.addEventListener('scroll', handleScroll);
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, []);
+    }, [handleScroll]);
 
     return (
         <Suspense fallback={<Loader />}>

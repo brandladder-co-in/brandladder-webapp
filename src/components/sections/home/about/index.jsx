@@ -1,11 +1,12 @@
-import React from 'react';
+import { lazy } from 'react';
 import { Link } from 'react-router-dom';
 import { animated } from 'react-spring';
 
 import useFadeInRightAnimation from '../../../../hooks/animations/useFadeInRightAnimation'
 import useFadeInLeftAnimation from '../../../../hooks/animations/useFadeInLeftAnimation'
+import LazyLoadImg from '../../../lazy-loading/img/LazyLoadImage';
 
-import OutlineButton from '../../../buttons/outline'
+const OutlineButton = lazy(() => import('../../../buttons/outline'));
 
 const HomeAboutSection = () => {
 
@@ -22,9 +23,12 @@ const HomeAboutSection = () => {
         <section className='my-4'>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 md:mb-0">
                 <h1 className='font-semibold md:font-bold text-black text-4xl md:text-5xl my-auto z-20'>
-                    Prominent work of our Brandladder
+                    Work Of Brandladder Technologies
                 </h1>
-                <img src="https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/general%2Ftitle-bg.png?alt=media&token=ee5eb414-64f3-4471-8fdd-5004439b5cee" alt="Brandladder" className='max-h-52 relative right-56 z-10 hidden md:block' loading='lazy' />
+                <LazyLoadImg
+                    src="https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/general%2Ftitle-bg.png?alt=media&token=ee5eb414-64f3-4471-8fdd-5004439b5cee"
+                    alt="Brandladder"
+                    className='max-h-52 relative right-56 z-10 hidden md:block' />
             </div>
 
             <div className='flex flex-col-reverse md:flex-row justify-evenly'>
@@ -48,7 +52,7 @@ const HomeAboutSection = () => {
                     style={{ ...fadeInLeft1, flexBasis: 0 }}
                     className='flex-grow'
                 >
-                    <img
+                    <LazyLoadImg
                         src="https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/general%2Fabout-1.png?alt=media&token=5a7065b8-16ca-4670-a47d-44ad2642a9ac"
                         alt="BandLadder"
                         className='max-h-80 mx-auto '
@@ -62,7 +66,7 @@ const HomeAboutSection = () => {
                     style={{ ...fadeInRight2, flexBasis: 0 }} // Add flexBasis: 0
                     className='flex-grow'
                 >
-                    <img
+                    <LazyLoadImg
                         src="https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/general%2Fabout-2.png?alt=media&token=1eecac6b-3fcd-480f-a8e5-28f434be48bb"
                         alt="BandLadder"
                         className='max-h-80 mx-auto'
@@ -105,7 +109,7 @@ const HomeAboutSection = () => {
                     style={{ ...fadeInLeft3, flexBasis: 0 }}
                     className='flex-grow' // Use flex-grow to evenly divide space
                 >
-                    <img
+                    <LazyLoadImg
                         src="https://firebasestorage.googleapis.com/v0/b/brandladder-webapp.appspot.com/o/general%2Fabout-3.png?alt=media&token=4aa187a6-6ed1-4eaf-af2f-63e5085741fb"
                         alt="BandLadder"
                         className='max-h-80 mx-auto '

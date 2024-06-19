@@ -1,11 +1,11 @@
-import React, { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, useCallback } from 'react';
 import ServiceCard from '../../cards/service';
 
 const ServiceSection = ({ serviceList, sectionTitle }) => {
     const containerRef = useRef(null);
     const [visibleItems, setVisibleItems] = useState(10); // Initial number of items to display
 
-    const handleScroll = () => {
+    const handleScroll = useCallback(() => {
         const containerHeight = containerRef.current.clientHeight;
         const scrollTop = containerRef.current.scrollTop;
         const scrollHeight = containerRef.current.scrollHeight;
@@ -13,7 +13,7 @@ const ServiceSection = ({ serviceList, sectionTitle }) => {
         if (scrollTop + containerHeight >= scrollHeight) {
             setVisibleItems(prevVisibleItems => Math.min(prevVisibleItems + 10, serviceList.length));
         }
-    };
+    }, [serviceList]);
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
@@ -29,7 +29,7 @@ const ServiceSection = ({ serviceList, sectionTitle }) => {
                 </div>
             )}
             <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-10" ref={containerRef}>
-                {serviceList.slice(0, visibleItems).map((data, index) => (
+                {serviceList?.slice(0, visibleItems)?.map((data, index) => (
                     <ServiceCard
                         key={index}
                         image={data.img}

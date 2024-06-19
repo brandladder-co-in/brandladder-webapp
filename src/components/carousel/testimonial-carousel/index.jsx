@@ -1,5 +1,3 @@
-import React from 'react';
-import PropType from 'prop-types'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
@@ -53,10 +51,6 @@ const TestemonialCarousel = ({ testemonialList }) => {
             }
         </Swiper>
     )
-}
-
-TestemonialCarousel.PropType = {
-    testemonialList: PropType.array.isRequired,
 }
 
 export default TestemonialCarousel

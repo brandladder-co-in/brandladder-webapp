@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useFirestore } from '../../../context/FirestoreContext';
 import { showSuccessToast, showErrorToast } from '../../tosters'
 import { countryPhoneCode } from '../../../.data/no-code'
@@ -65,7 +65,7 @@ const ContactForm = () => {
 
     return (
         <>
-            <div className='space-y-4'>
+            <div className='space-y-4 mb-4'>
                 <h1 className='text-black text-3xl md:text-5xl font-medium md:font-bold'>
                     Get In <span className='text-orange-8'> Touch</span>
                 </h1>

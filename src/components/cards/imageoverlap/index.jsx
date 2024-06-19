@@ -1,6 +1,7 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRightLong } from "react-icons/fa6";
+
+import LazyLoadImg from '../../lazy-loading/img/LazyLoadImage';
 
 const ImageCard = ({ imageSrc, date, domain, title, link, largecard = false }) => {
 
@@ -14,7 +15,7 @@ const ImageCard = ({ imageSrc, date, domain, title, link, largecard = false }) =
     return (
         <div className="relative overflow-hidden shadow-lg rounded-3xl bg-orange-1 w-full">
             <div className={`overflow-hidden ${largecard && ('md:h-[32rem]')}`}>
-                <img src={imageSrc} alt={title} className="h-80 md:h-full w-full" />
+                <LazyLoadImg src={imageSrc} alt={title} className="h-80 md:h-full w-full" />
             </div>
 
             <div className="absolute top-0 left-0 p-4 text-white">

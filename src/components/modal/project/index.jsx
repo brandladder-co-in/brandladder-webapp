@@ -1,8 +1,9 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { FaInstagram } from "react-icons/fa";
 import { CgWebsite } from "react-icons/cg";
+
+import LazyLoadImg from '../../lazy-loading/img/LazyLoadImage';
 
 const PreojectModal = ({ logo, title, subtitle, desc, insta, website, type }) => {
     return (
@@ -41,12 +42,12 @@ const PreojectModal = ({ logo, title, subtitle, desc, insta, website, type }) =>
                                             )
                                         }
                                         {
-                                            insta && (
+                                            website && (
                                                 <div
                                                     className='border-2 text-2xl border-orange-3 border-solid rounded-full p-1 text-orange-10 mx-1 shadow-2xl transition duration-500 ease-in-out hover:text-orange-1 hover:bg-orange-5'
                                                     target='_blank'
                                                 >
-                                                    <Link to={insta}>
+                                                    <Link to={website}>
                                                         <CgWebsite />
                                                     </Link>
                                                 </div>
@@ -56,7 +57,7 @@ const PreojectModal = ({ logo, title, subtitle, desc, insta, website, type }) =>
                                 </div>
                             </aside>
                             <aside className='col-span-1'>
-                                <img src={logo} alt={title} loading='lazy' />
+                                <LazyLoadImg loading='lazy' src={logo} alt={title} />
                             </aside>
                         </div>
                     </section>

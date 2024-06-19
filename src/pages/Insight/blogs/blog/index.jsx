@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom';
 
 import useSmoothScroll from '../../../../hooks/general/useSmoothScroll';
 import { useFirestore } from '../../../../context/FirestoreContext';
-
-// import { CiPause1 } from "react-icons/ci";
-// import { IoPlayBackOutline, IoPlayForwardOutline } from "react-icons/io5";
+import LazyLoadImg from '../../../../components/lazy-loading/img/LazyLoadImage';
 
 import HelmetComponent from '../../../../helmet';
 import Loader from '../../../../components/loader'
@@ -127,7 +125,7 @@ const Blog = () => {
                                 </div>
                                 <div className="card flex flex-row space-x-4 shadow-none w-full bg-inherit">
                                     <div className='rounded-full col-span-1 max-h-16 max-w-16'>
-                                        <img src={blogData.titleImage} alt="" className='rounded-full mx-auto my-auto' />
+                                        <LazyLoadImg src={blogData.titleImage} alt="" className='rounded-full mx-auto my-auto' />
                                     </div>
                                     <div className='col-span-2'>
                                         <div className="">{blogData.writerName}</div>
@@ -139,7 +137,7 @@ const Blog = () => {
                                 </div>
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                     <div className='col-span-1 mx-auto max-w-full'>
-                                        <img src={blogData.titleImage} alt={blogData.blogTitle} className='w-screen h-full' />
+                                        <LazyLoadImg src={blogData.titleImage} alt={blogData.blogTitle} className='w-screen h-full' />
                                     </div>
                                     <div className="col-span-2 my-auto text-black">
                                         {blogData.blogDesc}

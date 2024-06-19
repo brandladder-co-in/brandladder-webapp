@@ -1,5 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 
 import SelectPlanModal from '../../modal/selectPlan';
 import useEmailAuth from '../../../hooks/auth/useEmailAuth';
@@ -73,11 +72,5 @@ export const PricingCard = ({ planType, monthlyPrice, usdPrice, featureList, pri
     );
 };
 
-// PricingCard.propTypes = {
-//     planType: PropTypes.string.isRequired,
-//     monthlyPrice: PropTypes.string.isRequired,
-//     featureList: PropTypes.array.isRequired,
-//     prime: PropTypes.bool.isRequired,
-// }
 
 export default PricingCard;
